@@ -24,8 +24,8 @@ public class SpotlightDetection : MonoBehaviour
         
         //fibonacci spiral
         for(int i = 0; i < rayCount; i++){
-            float theta = 2 * Mathf.PI * i / goldenRatio;
-            float r = coneRadius * Mathf.Sqrt(i) / Mathf.Sqrt(rayCount);
+            float theta = 2 * Mathf.PI * i / goldenRatio;  //angle
+            float r = coneRadius * Mathf.Sqrt(i) / Mathf.Sqrt(rayCount);  //radius
             float x = r * Mathf.Cos(theta);
             float y = r * Mathf.Sin(theta);
             Vector3 rayDir = forwardDir + new Vector3(x, y, 0);
@@ -35,7 +35,7 @@ public class SpotlightDetection : MonoBehaviour
                     
                     if(debugRays){
                       Debug.DrawRay(transform.position, rayDir * hit.distance, Color.blue);
-                      Debug.Log("Ray hit: " + hit.collider.gameObject.name);
+                    //   Debug.Log("Ray hit: " + hit.collider.gameObject.name);
                     }
 
                     if((detectionLayer & (1 << hit.collider.gameObject.layer)) != 0){
@@ -50,42 +50,5 @@ public class SpotlightDetection : MonoBehaviour
                     Debug.DrawRay(transform.position, rayDir * maxDistance, Color.red);
                 }
         }
-
-        
-
-
-        // int tempRayCount = Mathf.FloorToInt(Mathf.Sqrt(rayCount));
-        // float angleStep = angleSpread / tempRayCount;
-
-        // for(int i = -tempRayCount/2; i <= tempRayCount/2; i++){
-        //     for(int j = -tempRayCount/2; j <= tempRayCount / 2; j++){
-
-        //         float horizontalAngle = i * angleStep;
-        //         float verticalAngle = j * angleStep;
-
-        //         Vector3 rayDir = Quaternion.Euler(verticalAngle, horizontalAngle, 0) * forwardDir;
-
-                
-        //         if(Physics.Raycast(transform.position, rayDir, out RaycastHit hit, maxDistance)){
-                    
-        //             if(debugRays){
-        //               Debug.DrawRay(transform.position, rayDir * hit.distance, Color.blue);
-        //               Debug.Log("Ray hit: " + hit.collider.gameObject.name);
-        //             }
-
-        //             if((detectionLayer & (1 << hit.collider.gameObject.layer)) != 0){
-        //                 Debug.Log("Spotlight detected: " + hit.collider.gameObject.name);
-        //                 if (debugRays)
-        //                 {
-        //                     Debug.DrawRay(transform.position, rayDir * hit.distance, Color.green);
-        //                 }
-        //             }
-
-        //         }else if (debugRays){
-        //             Debug.DrawRay(transform.position, rayDir * maxDistance, Color.red);
-        //         }
-        //     }
-
-        // }
     }
 }
