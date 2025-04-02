@@ -1,3 +1,4 @@
+using UnityEditor.Callbacks;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Controls;
@@ -14,9 +15,12 @@ public class Mover : MonoBehaviour
     KeyControl fdKey;
     KeyControl bkKey;
     KeyControl jmpKey;
+    Rigidbody rb;
     float dps;
+    public float jumpSize = 10;
     void Start()
     {
+        rb = GetComponent<Rigidbody>();
         fdKey = Keyboard.current[fdKeyNum];
         bkKey = Keyboard.current[bkKeyNum];
         jmpKey = Keyboard.current[jmpKeyNum];
@@ -36,9 +40,8 @@ public class Mover : MonoBehaviour
         }
         if (jmpKey.isPressed && onGround)
         {
-            for (int i = 0; i < 30; i++){
-                transform.Translate(0, 10f * Time.deltaTime, 0);
-            }
+            Vector3 impulse = Vector3.up;
+            rb.AddForce(jumpSize*impulse, ForceMode.Impulse);
             onGround = false;
         }
     }
