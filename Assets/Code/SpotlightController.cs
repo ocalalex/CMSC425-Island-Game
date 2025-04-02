@@ -39,11 +39,17 @@ public class SpotlightDetection : MonoBehaviour
                     }
 
                     if((detectionLayer & (1 << hit.collider.gameObject.layer)) != 0){
+                        Teleporter teleporter = hit.collider.GetComponent<Teleporter>();
+                        if(teleporter != null){
+                            teleporter.Teleport();
+                        }
+
                         Debug.Log("Spotlight detected: " + hit.collider.gameObject.name);
                         if (debugRays)
                         {
                             Debug.DrawRay(transform.position, rayDir * hit.distance, Color.green);
                         }
+
                     }
 
                 }else if (debugRays){
