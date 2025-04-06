@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
+using System;
 
 public class Inventory : MonoBehaviour
 {
@@ -24,6 +25,15 @@ public class Inventory : MonoBehaviour
         // Use key to open door
         items.RemoveAt(i);
         Display();
+    }
+
+    public void UseItem(GameObject item) {
+        items.Remove(item);
+        Display();
+    }
+
+    public Boolean CheckItem(GameObject item) {
+        return items.Contains(item);
     }
 
     void Display() {

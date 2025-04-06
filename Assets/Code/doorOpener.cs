@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,6 +12,10 @@ public class doorOpener : MonoBehaviour
     Quaternion rotOpened;
     Quaternion rotClosed;
     RevCo revCo;
+
+    public Inventory inventory;
+
+    public GameObject key;
     void Start()
     {
         rotOpened = Quaternion.Euler(0, angleOpened, 0);
@@ -22,7 +27,12 @@ public class doorOpener : MonoBehaviour
     // Update is called once per frame
     private void OnMouseDown()
     {
-        revCo.Action();
+        if (inventory.CheckItem(key)) {
+            revCo.Action();
+            inventory.UseItem(key);
+        } else {
+            Debug.Log("No key");
+        }
     }
     private void OpenDoor(float t)
     {
