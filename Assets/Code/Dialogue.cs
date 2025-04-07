@@ -9,11 +9,20 @@ public class Dialogue : MonoBehaviour
     public string[] lines; //stores the lines 
     public float textSpeed; //speed that the lines will be displayed
     private int index; //curr index that we are at in lines
+
+    public GameObject player; //reference to the player
+    public GameObject playerCamera; //reference to the camera of the player 
+
+    public Collider buildingTrigger; //reference to the building 
+    private bool hasExitedBuilding = false; //see if user has exited building
    
    
     void Start()
     {
         textComponent.text = string.Empty;
+        player.GetComponent<Mover>().enabled = false; //disable movement of the player 
+        player.GetComponent<Turner>().enabled = false;
+        playerCamera.GetComponent<HeadTurn>().enabled = false;
         StartDialogue();
     }
 
@@ -48,7 +57,34 @@ public class Dialogue : MonoBehaviour
             textComponent.text = string.Empty;
             StartCoroutine(TypeLine());
         } else {
+            player.GetComponent<Mover>().enabled = true; //allows player to move again
+            player.GetComponent<Turner>().enabled = true;
+            playerCamera.GetComponent<HeadTurn>().enabled = true;
             gameObject.SetActive(false);
         }
     }
+
+    void OnTriggerExit(Collider other)
+{
+    if (other.gameObject == player && !hasExitedBuilding)
+    {
+        hasExitedBuilding = true;
+        InsertExitLine();
+    }
+}
+    void InsertExitLine()
+{
+    List<string> updatedLines = new List<string>(lines);
+
+    if (updatedLines.Count >= 2)
+    {
+        updatedLines.Insert(2, "You step out of the building...");
+    }
+    else
+    {
+        updatedLines.Add("You step out of the building...");
+    }
+
+    lines = updatedLines.ToArray();
+}
 }
