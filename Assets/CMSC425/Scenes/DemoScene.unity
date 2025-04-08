@@ -2731,7 +2731,7 @@ GameObject:
   - component: {fileID: 935027261}
   - component: {fileID: 935027260}
   - component: {fileID: 935027259}
-  - component: {fileID: 935027258}
+  - component: {fileID: 935027262}
   m_Layer: 3
   m_Name: Holder for Camera
   m_TagString: Untagged
@@ -2755,23 +2755,6 @@ Transform:
   - {fileID: 691510993}
   m_Father: {fileID: 2080557020}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &935027258
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 935027256}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2ac43f6f3625c72479b241e8b34da702, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  UpKeyNum: 37
-  DownKeyNum: 33
-  LftKeyNum: 0
-  RgtKeyNum: 0
-  speed: 75
 --- !u!135 &935027259
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -2846,6 +2829,20 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 935027256}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &935027262
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 935027256}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98c8f84829652b645b3fa188f5b6bd48, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mouseSensitivity: 200
+  playerBody: {fileID: 2080557020}
 --- !u!1 &938462865 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 11514154784840c46a729f69512befc7, type: 3}
