@@ -21,7 +21,6 @@ public class Dialogue : MonoBehaviour
     {
         textComponent.text = string.Empty;
         player.GetComponent<Mover>().enabled = false; //disable movement of the player 
-        player.GetComponent<Turner>().enabled = false;
         playerCamera.GetComponent<Looker>().enabled = false;
         StartDialogue();
     }
@@ -58,7 +57,6 @@ public class Dialogue : MonoBehaviour
             StartCoroutine(TypeLine());
         } else {
             player.GetComponent<Mover>().enabled = true; //allows player to move again
-            player.GetComponent<Turner>().enabled = true;
             playerCamera.GetComponent<Looker>().enabled = true;
             gameObject.SetActive(false);
         }
@@ -81,7 +79,6 @@ void InsertExitLine()
     textComponent.text = string.Empty;
 
     player.GetComponent<Mover>().enabled = false;
-    player.GetComponent<Turner>().enabled = false;
     playerCamera.GetComponent<Looker>().enabled = false;
 
     gameObject.SetActive(true); // Reactivate the dialogue box

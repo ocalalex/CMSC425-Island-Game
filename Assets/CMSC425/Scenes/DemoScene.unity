@@ -7959,7 +7959,6 @@ GameObject:
   - component: {fileID: 2080557018}
   - component: {fileID: 2080557017}
   - component: {fileID: 2080557016}
-  - component: {fileID: 2080557015}
   - component: {fileID: 2080557014}
   - component: {fileID: 2080557021}
   - component: {fileID: 2080557022}
@@ -7997,21 +7996,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
---- !u!114 &2080557015
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2080557013}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e33d1955d565a614aa221fd71087cd52, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  raKeyNum: 62
-  laKeyNum: 61
-  rpm: 20
 --- !u!114 &2080557016
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8024,10 +8008,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9b70cb9c6e4dfb46bc067940adc4a39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fdKeyNum: 63
-  bkKeyNum: 64
-  jmpKeyNum: 1
+  fdKeyNum: 37
+  bkKeyNum: 33
+  ltKeyNum: 15
+  rtKeyNum: 18
   speed: 10
+  jmpKeyNum: 1
   jumpSize: 10
 --- !u!136 &2080557017
 CapsuleCollider:
