@@ -3912,6 +3912,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1897763037384834520, guid: 4aeebd740b5a30d4989837dfcc2140cd, type: 3}
+      propertyPath: m_Size.z
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 2170107593602372888, guid: 4aeebd740b5a30d4989837dfcc2140cd, type: 3}
       propertyPath: m_Name
       value: Building
@@ -3927,6 +3931,10 @@ PrefabInstance:
     - target: {fileID: 2855034295628155276, guid: 4aeebd740b5a30d4989837dfcc2140cd, type: 3}
       propertyPath: m_Center.y
       value: 1.3501277
+      objectReference: {fileID: 0}
+    - target: {fileID: 3569735427289670211, guid: 4aeebd740b5a30d4989837dfcc2140cd, type: 3}
+      propertyPath: m_Size.z
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 4146722588018916922, guid: 4aeebd740b5a30d4989837dfcc2140cd, type: 3}
       propertyPath: m_LocalPosition.x
@@ -7563,6 +7571,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   clickRadius: 20
   playerObject: {fileID: 2080557013}
+  speed: 10
 --- !u!136 &1979961226
 CapsuleCollider:
   m_ObjectHideFlags: 0
