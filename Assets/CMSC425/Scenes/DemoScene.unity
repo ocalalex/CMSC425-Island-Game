@@ -7109,6 +7109,7 @@ MonoBehaviour:
   player: {fileID: 2080557013}
   playerCamera: {fileID: 935027256}
   buildingTrigger: {fileID: 0}
+  isSpotted: 0
 --- !u!1 &1911401407 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 7ff193a26ab20da438b0f57d85de2df9, type: 3}
@@ -7395,6 +7396,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   debugRays: 1
+  dialogue: {fileID: 1894785195}
 --- !u!108 &1963148858
 Light:
   m_ObjectHideFlags: 0

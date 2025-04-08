@@ -15,6 +15,7 @@ public class Dialogue : MonoBehaviour
 
     public Collider buildingTrigger; //reference to the building 
     private bool hasExitedBuilding = false; //see if user has exited building
+    public bool isSpotted = false;
    
    
     void Start()
@@ -71,6 +72,15 @@ public class Dialogue : MonoBehaviour
     }
 }
 
+    public void TriggerSpottedLine()
+{
+    if (!isSpotted)
+    {
+        hasExitedBuilding = true;
+        InsertSpottedLine();
+    }
+}
+
 void InsertExitLine()
 {
     // Replace lines entirely with only the new one
@@ -81,6 +91,18 @@ void InsertExitLine()
     player.GetComponent<Mover>().enabled = false;
     playerCamera.GetComponent<Looker>().enabled = false;
 
+    gameObject.SetActive(true); // Reactivate the dialogue box
+    StartCoroutine(TypeLine());
+}
+
+void InsertSpottedLine()
+{
+    lines = new string[] {"You have been caught by the spotlight!", "Try hiding under the trees next time."};
+    index = 0;
+    textComponent.text = string.Empty;
+
+    player.GetComponent<Mover>().enabled = false;
+    playerCamera.GetComponent<Looker>().enabled = false;
     gameObject.SetActive(true); // Reactivate the dialogue box
     StartCoroutine(TypeLine());
 }

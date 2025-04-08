@@ -7,6 +7,7 @@ public class SpotlightDetection : MonoBehaviour
     public float angleSpread = 20f;
     public LayerMask detectionLayer;
     public bool debugRays = true;
+    public Dialogue dialogue;
 
     private Light spotLight;
 
@@ -40,8 +41,11 @@ public class SpotlightDetection : MonoBehaviour
 
                     if((detectionLayer & (1 << hit.collider.gameObject.layer)) != 0){
                         Teleporter teleporter = hit.collider.GetComponent<Teleporter>();
-                        if(teleporter != null){
+
+                        if(teleporter != null && dialogue != null){
+                            dialogue.TriggerSpottedLine();
                             teleporter.Teleport();
+                            dialogue.isSpotted = false;
                         }
 
                         Debug.Log("Spotlight detected: " + hit.collider.gameObject.name);
