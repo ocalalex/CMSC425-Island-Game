@@ -64,27 +64,27 @@ public class Dialogue : MonoBehaviour
         }
     }
 
-    void OnTriggerExit(Collider other)
+    public void TriggerExitLine()
 {
-    if (other.gameObject == player && !hasExitedBuilding)
+    if (!hasExitedBuilding)
     {
         hasExitedBuilding = true;
         InsertExitLine();
     }
 }
-    void InsertExitLine()
+
+void InsertExitLine()
 {
-    List<string> updatedLines = new List<string>(lines);
+    // Replace lines entirely with only the new one
+    lines = new string[] { "You step out of the building...Now find the boat and avoid being caught by the spotlight. Good luck!" };
+    index = 0;
+    textComponent.text = string.Empty;
 
-    if (updatedLines.Count >= 2)
-    {
-        updatedLines.Insert(2, "You step out of the building...");
-    }
-    else
-    {
-        updatedLines.Add("You step out of the building...");
-    }
+    player.GetComponent<Mover>().enabled = false;
+    player.GetComponent<Turner>().enabled = false;
+    playerCamera.GetComponent<HeadTurn>().enabled = false;
 
-    lines = updatedLines.ToArray();
+    gameObject.SetActive(true); // Reactivate the dialogue box
+    StartCoroutine(TypeLine());
 }
 }

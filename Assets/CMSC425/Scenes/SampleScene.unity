@@ -212,6 +212,59 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5595438942072897912, guid: 3969e4828c33f914e861f8937adc00d2, type: 3}
   m_PrefabInstance: {fileID: 30218361}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &48488657
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 48488659}
+  - component: {fileID: 48488658}
+  m_Layer: 0
+  m_Name: BuildingTriggerZone
+  m_TagString: Building
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!65 &48488658
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 48488657}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 80, y: 20, z: 30}
+  m_Center: {x: 0, y: -0.3, z: 0}
+--- !u!4 &48488659
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 48488657}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 121.6, y: 14.8, z: 286}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &122538967
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3531,6 +3584,10 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2170107593602372888, guid: 4aeebd740b5a30d4989837dfcc2140cd, type: 3}
       propertyPath: m_Name
+      value: Building
+      objectReference: {fileID: 0}
+    - target: {fileID: 2170107593602372888, guid: 4aeebd740b5a30d4989837dfcc2140cd, type: 3}
+      propertyPath: m_TagString
       value: Building
       objectReference: {fileID: 0}
     - target: {fileID: 2855034295628155276, guid: 4aeebd740b5a30d4989837dfcc2140cd, type: 3}
@@ -7397,6 +7454,7 @@ GameObject:
   - component: {fileID: 2080557015}
   - component: {fileID: 2080557014}
   - component: {fileID: 2080557021}
+  - component: {fileID: 2080557022}
   m_Layer: 3
   m_Name: User
   m_TagString: Ground
@@ -7568,6 +7626,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teleportPosition: {x: 150, y: 10, z: 280}
+--- !u!114 &2080557022
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2080557013}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87019ef46bb2f4d4ca4428c3ba67f95d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue: {fileID: 1894785195}
+  building: {fileID: 48488657}
 --- !u!1001 &2093820573
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7808,3 +7880,4 @@ SceneRoots:
   - {fileID: 1963148862}
   - {fileID: 2093820573}
   - {fileID: 527833361}
+  - {fileID: 48488659}
