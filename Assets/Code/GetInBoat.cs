@@ -1,9 +1,12 @@
+using System.Resources;
 using UnityEngine;
 
 public class GetInBoat : MonoBehaviour
 {
     public float clickRadius = 10f;
     public GameObject playerObject;
+    private bool sat = false;
+    public float speed = 10f;
     void OnMouseDown() 
     {
         Transform player = playerObject.transform;
@@ -12,6 +15,13 @@ public class GetInBoat : MonoBehaviour
         if (dist <= clickRadius)
         {
             sitInBoat();
+            sat = true;
+        }
+    }
+    void Update()
+    {
+        if (sat) {
+            transform.Translate(0, 0, -speed * Time.deltaTime);
         }
     }
 
