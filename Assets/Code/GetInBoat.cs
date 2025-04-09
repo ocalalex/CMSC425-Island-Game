@@ -7,6 +7,9 @@ public class GetInBoat : MonoBehaviour
     public GameObject playerObject;
     private bool sat = false;
     public float speed = 10f;
+
+    public Inventory inventory;
+    public GameObject gear;
     void OnMouseDown() 
     {
         Transform player = playerObject.transform;
@@ -14,8 +17,13 @@ public class GetInBoat : MonoBehaviour
         float dist = Vector3.Distance(transform.position, player.position);
         if (dist <= clickRadius)
         {
-            sitInBoat();
-            sat = true;
+            if (inventory.CheckItem(gear)) {
+                sitInBoat();
+                sat = true;
+                inventory.UseItem(gear);
+            } else {
+                Debug.Log("No gear");
+            }
         }
     }
     void Update()
