@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class GetInBoat : MonoBehaviour
 {
-    public float clickRadius = 10f;
+    public float clickRadius = 20f;
     public GameObject playerObject;
     private bool sat = false;
     public float speed = 10f;
