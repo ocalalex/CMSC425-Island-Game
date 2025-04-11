@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Resources;
 using UnityEngine;
 
@@ -5,11 +6,19 @@ public class GetInBoat : MonoBehaviour
 {
     public float clickRadius = 20f;
     public GameObject playerObject;
-    private bool sat = false;
+    public Transform drone;
+    private bool isMoving = false;
     public float speed = 10f;
 
     public Inventory inventory;
     public GameObject gear;
+    public Camera mainCamera;
+    public Camera endCamera;
+    void Start()
+    {
+        mainCamera.enabled = true;
+        endCamera.enabled = false;
+    }
     void OnMouseDown() 
     {
         Transform player = playerObject.transform;
@@ -19,18 +28,25 @@ public class GetInBoat : MonoBehaviour
         {
             if (inventory.CheckItem(gear)) {
                 sitInBoat();
-                sat = true;
                 inventory.UseItem(gear);
+                if (!isMoving) {
+                    StartCoroutine(MoveBoat(5f));
+                }
             } else {
                 Debug.Log("No gear");
             }
         }
     }
-    void Update()
-    {
-        if (sat) {
+    private IEnumerator MoveBoat(float duration) {
+        isMoving = true;
+        float startTime = Time.time;
+        while (Time.time < startTime + duration) {
             transform.Translate(0, 0, -speed * Time.deltaTime);
+            yield return null;
         }
+        isMoving = false;
+        mainCamera.enabled = false;
+        endCamera.enabled = true;
     }
 
     void sitInBoat() {
