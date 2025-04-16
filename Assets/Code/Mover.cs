@@ -25,9 +25,15 @@ public class Mover : MonoBehaviour
     [Header("Jumping")]
     public Key jmpKeyNum = Key.Space;
     public float jumpSize = 10;
+
+    private LayerMask groundLayer;
+    private Transform feet; 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        groundLayer = LayerMask.GetMask("Ground");
+        feet = transform.Find("Feet");
+
         fdKey = Keyboard.current[fdKeyNum];
         bkKey = Keyboard.current[bkKeyNum];
         ltKey = Keyboard.current[ltKeyNum];
@@ -38,23 +44,40 @@ public class Mover : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (fdKey.isPressed)
-        {
-            transform.Translate(0, 0, speed * Time.deltaTime);
+        Vector3 input = Vector3.zero;
 
-        }
+        if (fdKey.isPressed)
+            input += transform.forward;
         if (bkKey.isPressed)
-        {
-            transform.Translate(0, 0, -speed * Time.deltaTime);
-        }
+            input -= transform.forward;
         if (ltKey.isPressed)
-        {
-            transform.Translate(-speed * Time.deltaTime, 0, 0);
-        }
+            input -= transform.right;
         if (rtKey.isPressed)
+            input += transform.right;
+
+        if (input != Vector3.zero)
         {
-            transform.Translate(speed * Time.deltaTime, 0, 0);
+            input.Normalize();
+            Vector3 move = input * speed * Time.fixedDeltaTime;
+
+            bool moveBool = true;
+
+            if (Physics.Raycast(rb.position, input, out RaycastHit hit, move.magnitude + 0.1f))
+            {
+                if (hit.collider.CompareTag("Wall") || hit.collider.CompareTag("Ground")) {
+                    moveBool = false; 
+                }
+                
+            }
+
+            if (moveBool) {
+                rb.MovePosition(rb.position + move);
+            }
+            
         }
+
+        CheckGrounded();
+
         if (jmpKey.isPressed && onGround)
         {
             Vector3 impulse = Vector3.up;
@@ -62,11 +85,10 @@ public class Mover : MonoBehaviour
             onGround = false;
         }
     }
-    void OnCollisionEnter(Collision collision)
+    void CheckGrounded()
     {
-        if (collision.gameObject.CompareTag("Ground"))
-        {
-            onGround = true;
-        }
+        Ray ray = new Ray(feet.transform.position, Vector3.down);
+        onGround = Physics.Raycast(ray, 0.5f, groundLayer);
+        Debug.Log(onGround);
     }
 }

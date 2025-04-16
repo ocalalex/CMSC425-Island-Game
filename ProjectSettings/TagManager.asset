@@ -6,6 +6,9 @@ TagManager:
   tags:
   - Ground
   - Building
+  - LadderTop
+  - LadderBottom
+  - Wall
   layers:
   - Default
   - TransparentFX
@@ -13,8 +16,8 @@ TagManager:
   - Player
   - Water
   - UI
-  - 
-  - 
+  - LadderTop
+  - Ground
   - 
   - 
   - 
