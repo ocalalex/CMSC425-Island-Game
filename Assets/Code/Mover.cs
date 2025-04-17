@@ -26,12 +26,10 @@ public class Mover : MonoBehaviour
     public Key jmpKeyNum = Key.Space;
     public float jumpSize = 10;
 
-    private LayerMask groundLayer;
     private Transform feet; 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        groundLayer = LayerMask.GetMask("Ground");
         feet = transform.Find("Feet");
 
         fdKey = Keyboard.current[fdKeyNum];
@@ -88,7 +86,7 @@ public class Mover : MonoBehaviour
     void CheckGrounded()
     {
         Ray ray = new Ray(feet.transform.position, Vector3.down);
-        onGround = Physics.Raycast(ray, 0.5f, groundLayer);
+        onGround = Physics.Raycast(ray, 0.5f);
         Debug.Log(onGround);
     }
 }
