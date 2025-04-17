@@ -30,23 +30,25 @@ public class GetInBoat : MonoBehaviour
                 sitInBoat();
                 inventory.UseItem(gear);
                 if (!isMoving) {
-                    StartCoroutine(MoveBoat(5f));
+                    StartCoroutine(MoveBoat(5f, 20f));
                 }
             } else {
                 Debug.Log("No gear");
             }
         }
     }
-    private IEnumerator MoveBoat(float duration) {
+    private IEnumerator MoveBoat(float duration, float secDuration) {
         isMoving = true;
         float startTime = Time.time;
-        while (Time.time < startTime + duration) {
+        while (Time.time < startTime + secDuration) {
+            if (Time.time > startTime + duration) {
+                mainCamera.enabled = false;
+                endCamera.enabled = true;
+            }
             transform.Translate(0, 0, -speed * Time.deltaTime);
             yield return null;
         }
         isMoving = false;
-        mainCamera.enabled = false;
-        endCamera.enabled = true;
     }
 
     void sitInBoat() {
