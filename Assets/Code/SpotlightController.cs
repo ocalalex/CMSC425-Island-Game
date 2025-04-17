@@ -48,7 +48,7 @@ public class SpotlightDetection : MonoBehaviour
                     if((detectionLayer & (1 << hit.collider.gameObject.layer)) != 0){
                         Teleporter teleporter = hit.collider.GetComponent<Teleporter>();
 
-                        if(teleporter != null && dialogue != null){
+                        if(!actionTriggered && teleporter != null && dialogue != null){
                             dialogue.TriggerSpottedLine();
                             teleporter.Teleport();
                             dialogue.isSpotted = false;
