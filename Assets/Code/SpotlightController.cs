@@ -20,7 +20,6 @@ public class SpotlightDetection : MonoBehaviour
     {
         
         Vector3 forwardDir = transform.forward;
-        float coneRadius = Mathf.Tan(angleSpread * 0.5f * Mathf.Deg2Rad);
         float goldenRatio = (1 + Mathf.Sqrt(5)) / 2;
         bool actionTriggered = false;
         
@@ -31,11 +30,16 @@ public class SpotlightDetection : MonoBehaviour
                 break;
             }
 
-            float theta = 2 * Mathf.PI * i / goldenRatio;  //angle
-            float r = coneRadius * Mathf.Sqrt(i) / Mathf.Sqrt(rayCount);  //radius
-            float x = r * Mathf.Cos(theta);
-            float y = r * Mathf.Sin(theta);
-            Vector3 rayDir = forwardDir + new Vector3(x, y, 0);
+            float t = (float)i / rayCount;
+            float halfAngle = angleSpread * 0.5f * Mathf.Deg2Rad;
+            float inclination = t * halfAngle;
+            float azimuth = 2 * Mathf.PI * i / goldenRatio;
+            
+            // Convert spherical to cartesian coordinates
+            float x = Mathf.Sin(inclination) * Mathf.Cos(azimuth);
+            float y = Mathf.Sin(inclination) * Mathf.Sin(azimuth);
+            float z = Mathf.Cos(inclination);
+            Vector3 rayDir = transform.TransformDirection(new Vector3(x, y, z));
             rayDir.Normalize();
 
             if(Physics.Raycast(transform.position, rayDir, out RaycastHit hit, maxDistance)){
@@ -49,10 +53,10 @@ public class SpotlightDetection : MonoBehaviour
                         Teleporter teleporter = hit.collider.GetComponent<Teleporter>();
 
                         if(!actionTriggered && teleporter != null && dialogue != null){
+                            actionTriggered = true;
                             dialogue.TriggerSpottedLine();
                             teleporter.Teleport();
                             dialogue.isSpotted = false;
-                            actionTriggered = true;
                             Debug.Log("Action triggered");
                         }
 
