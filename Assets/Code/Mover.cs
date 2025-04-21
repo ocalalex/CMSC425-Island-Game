@@ -24,7 +24,7 @@ public class Mover : MonoBehaviour
 
     [Header("Jumping")]
     public Key jmpKeyNum = Key.Space;
-    public float jumpSize = 10;
+    public float jumpSize = 5;
 
     private Transform feet; 
     void Start()
