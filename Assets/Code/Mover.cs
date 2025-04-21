@@ -6,6 +6,8 @@ using UnityEngine.InputSystem.Controls;
 public class Mover : MonoBehaviour
 {
     [Header("Turning Keys")]
+    public Inventory inventory;
+    public GameObject map;
     public Key fdKeyNum = Key.UpArrow;
     public Key bkKeyNum = Key.DownArrow;
     public Key ltKeyNum = Key.LeftArrow;
@@ -20,10 +22,13 @@ public class Mover : MonoBehaviour
     KeyControl ltKey;
     KeyControl rtKey;
     KeyControl jmpKey;
+    KeyControl mapKey;
     Rigidbody rb;
 
     [Header("Jumping")]
     public Key jmpKeyNum = Key.Space;
+    public Key mapKeyNum = Key.M;
+    public bool inMapView = false;
     public float jumpSize = 5;
 
     private Transform feet; 
@@ -39,6 +44,7 @@ public class Mover : MonoBehaviour
         ltKey = Keyboard.current[ltKeyNum];
         rtKey = Keyboard.current[rtKeyNum];
         jmpKey = Keyboard.current[jmpKeyNum];
+        mapKey = Keyboard.current[mapKeyNum];
     }
 
     // Update is called once per frame
@@ -54,6 +60,22 @@ public class Mover : MonoBehaviour
             input -= transform.right;
         if (rtKey.isPressed)
             input += transform.right;
+        if (mapKey.wasReleasedThisFrame)
+        {
+            if (inventory.CheckItem(map)) 
+            {
+                if (inMapView)
+                {
+                    inMapView = false;
+                    mainCamera.enabled = true;
+                    mapCamera.enabled = false;
+                } else {
+                    inMapView = true;
+                    mainCamera.enabled = false;
+                    mapCamera.enabled = true;
+                }
+            }
+        }
 
         if (input != Vector3.zero)
         {
