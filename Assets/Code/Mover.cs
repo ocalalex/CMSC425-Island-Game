@@ -27,6 +27,8 @@ public class Mover : MonoBehaviour
     public float jumpSize = 5;
 
     private Transform feet; 
+    public Camera mainCamera;
+    public Camera mapCamera;
     void Start()
     {
         rb = GetComponent<Rigidbody>();

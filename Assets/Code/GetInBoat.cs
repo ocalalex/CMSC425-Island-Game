@@ -14,10 +14,12 @@ public class GetInBoat : MonoBehaviour
     public GameObject gear;
     public Camera mainCamera;
     public Camera endCamera;
+    public Camera mapCamera;
     void Start()
     {
         mainCamera.enabled = true;
         endCamera.enabled = false;
+        mapCamera.enabled = false;
     }
     void OnMouseDown() 
     {
