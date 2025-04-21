@@ -8,6 +8,9 @@ public class Mover : MonoBehaviour
     [Header("Turning Keys")]
     public Inventory inventory;
     public GameObject map;
+    public GameObject userMarker;
+    public GameObject keyMarkerText;
+    public GameObject keyMarkerDot;
     public Key fdKeyNum = Key.UpArrow;
     public Key bkKeyNum = Key.DownArrow;
     public Key ltKeyNum = Key.LeftArrow;
@@ -38,7 +41,9 @@ public class Mover : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         feet = transform.Find("Feet");
-
+        keyMarkerText.GetComponent<Renderer>().enabled = false;
+        keyMarkerDot.GetComponent<Renderer>().enabled = false;
+        userMarker.GetComponent<Renderer>().enabled = false;
         fdKey = Keyboard.current[fdKeyNum];
         bkKey = Keyboard.current[bkKeyNum];
         ltKey = Keyboard.current[ltKeyNum];
@@ -67,11 +72,17 @@ public class Mover : MonoBehaviour
                 if (inMapView)
                 {
                     inMapView = false;
+                    keyMarkerText.GetComponent<Renderer>().enabled = false;
+                    keyMarkerDot.GetComponent<Renderer>().enabled = false;
+                    userMarker.GetComponent<Renderer>().enabled = false;
                     mainCamera.enabled = true;
                     mapCamera.enabled = false;
                 } else {
                     inMapView = true;
                     mainCamera.enabled = false;
+                    keyMarkerText.GetComponent<Renderer>().enabled = true;
+                    keyMarkerDot.GetComponent<Renderer>().enabled = true;
+                    userMarker.GetComponent<Renderer>().enabled = true;
                     mapCamera.enabled = true;
                 }
             }
