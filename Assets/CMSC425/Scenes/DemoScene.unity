@@ -1489,6 +1489,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerObject: {fileID: 2080557013}
   highlightDistance: 20
+  highlightColor: {r: 0.69411767, g: 0.69411767, b: 0.69411767, a: 1}
+  highlightIntensity: 0.5
 --- !u!1001 &253548450
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2960,6 +2962,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: b8cde323cba18154d8dc799e6e26b07e, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 17a323a0b1deebf4285e3fee9eb1b4d1, type: 2}
+    - target: {fileID: -7511558181221131132, guid: b8cde323cba18154d8dc799e6e26b07e, type: 3}
+      propertyPath: 'm_Materials.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 17a323a0b1deebf4285e3fee9eb1b4d1, type: 2}
     - target: {fileID: 919132149155446097, guid: b8cde323cba18154d8dc799e6e26b07e, type: 3}
       propertyPath: m_Name
       value: canoe
@@ -3346,8 +3356,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 2.2231445, y: 1.1623149, z: 0.45}
-  m_Center: {x: 0.16143799, y: 0.081157446, z: 0.040283203}
+  m_Size: {x: 2.3010583, y: 1.3928589, z: 0.60058}
+  m_Center: {x: 0.12248123, y: 0.05758104, z: -0.03500682}
 --- !u!114 &549928977
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3362,6 +3372,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerObject: {fileID: 2080557013}
   highlightDistance: 20
+  highlightColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  highlightIntensity: 0.5
 --- !u!1 &560623610 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 11514154784840c46a729f69512befc7, type: 3}
@@ -10375,7 +10387,7 @@ SphereCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 1
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
@@ -10393,6 +10405,30 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerObject: {fileID: 2080557013}
   highlightDistance: 20
+  highlightColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  highlightIntensity: 0.5
+--- !u!64 &1464603575
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1464603557}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -4219333817343177906, guid: 858737d593f6d3f4690830190faf8c73, type: 3}
 --- !u!43 &1464793930
 Mesh:
   m_ObjectHideFlags: 0
@@ -11936,6 +11972,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 858737d593f6d3f4690830190faf8c73, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1464603574}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 858737d593f6d3f4690830190faf8c73, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1464603575}
   m_SourcePrefab: {fileID: 100100000, guid: 858737d593f6d3f4690830190faf8c73, type: 3}
 --- !u!1001 &1590438128
 PrefabInstance:
@@ -17725,6 +17764,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerObject: {fileID: 2080557013}
   highlightDistance: 20
+  highlightColor: {r: 0.671159, g: 0.671159, b: 0.671159, a: 1}
+  highlightIntensity: 0.5
 --- !u!1001 &2058410181
 PrefabInstance:
   m_ObjectHideFlags: 0
