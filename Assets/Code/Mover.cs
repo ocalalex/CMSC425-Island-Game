@@ -98,6 +98,7 @@ public class Mover : MonoBehaviour
             if (Physics.Raycast(rb.position, input, out RaycastHit hit, move.magnitude + 0.1f))
             {
                 if (hit.collider.CompareTag("Wall") || hit.collider.CompareTag("Ground")) {
+                    Debug.Log("don't move");
                     moveBool = false; 
                 }
                 
@@ -122,6 +123,5 @@ public class Mover : MonoBehaviour
     {
         Ray ray = new Ray(feet.transform.position, Vector3.down);
         onGround = Physics.Raycast(ray, 0.5f);
-        Debug.Log(onGround);
     }
 }

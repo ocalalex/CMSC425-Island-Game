@@ -8,14 +8,22 @@ public class PickUp : MonoBehaviour
     public float clickRadius = 20f;
 
     public GameObject playerObject;
-    void OnMouseDown() {
+    private int objectsLayer;
 
-        Transform player = playerObject.transform;
+    void Start()
+    {
+       objectsLayer = LayerMask.GetMask("Objects"); 
+    }
+    void Update() {
+        if (Input.GetMouseButtonDown(0)) {
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            RaycastHit hit;
 
-        float dist = Vector3.Distance(transform.position, player.position);
-        if (dist <= clickRadius)
-        {
-            inventory.AddItem(gameObject);
-        } 
+            if (Physics.Raycast(ray, out hit, clickRadius, objectsLayer)) {
+                if (hit.transform == transform) {
+                    inventory.AddItem(gameObject);
+                }
+            }
+        }
     }
 }
