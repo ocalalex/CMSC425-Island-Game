@@ -6,10 +6,13 @@ public class Equipper : MonoBehaviour
 {
     public Key equipKeyNum = Key.E;
     public Inventory inventory;
-    public GameObject user;
+    public GameObject hand;
     public GameObject item;
     private bool equipped = false;
     private KeyControl equipKey;
+
+    [SerializeField]
+    private Vector3 itemOffset = new Vector3(-0.5f, 1.5f, 1);
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -40,8 +43,10 @@ public class Equipper : MonoBehaviour
         item.SetActive(true);
         item.GetComponent<BoxCollider>().enabled = false;
         equipped = true;
-        item.transform.position = transform.position + new Vector3(0, 0, 1);
-        item.transform.rotation = transform.rotation;
+        item.transform.SetParent(hand.transform, false);
+        item.transform.localPosition = Vector3.zero;
+        item.transform.rotation = Quaternion.LookRotation(transform.forward);
+        item.transform.localPosition += itemOffset;
         
     }
 
