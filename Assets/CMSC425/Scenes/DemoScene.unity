@@ -980,6 +980,14 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Ground
       objectReference: {fileID: 0}
+    - target: {fileID: 4645914270373320512, guid: 3f073f99c8c2e70459276f46ce2d39a4, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 12.74003
+      objectReference: {fileID: 0}
+    - target: {fileID: 4645914270373320512, guid: 3f073f99c8c2e70459276f46ce2d39a4, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 27.72
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 1963054390400600982, guid: 3f073f99c8c2e70459276f46ce2d39a4, type: 3}
     m_RemovedGameObjects: []
@@ -13933,7 +13941,7 @@ AudioListener:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1964080802}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!20 &1964080804
 Camera:
   m_ObjectHideFlags: 0
@@ -14390,7 +14398,7 @@ AudioListener:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2005334127}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!20 &2005334129
 Camera:
   m_ObjectHideFlags: 0
@@ -15376,11 +15384,11 @@ MonoBehaviour:
   bkKeyNum: 33
   ltKeyNum: 15
   rtKeyNum: 18
-  speed: 15
+  speed: 6
   jmpKeyNum: 1
   mapKeyNum: 27
   inMapView: 0
-  jumpSize: 5
+  jumpSize: 2
   mainCamera: {fileID: 691510995}
   mapCamera: {fileID: 2005334129}
 --- !u!136 &2080557017
