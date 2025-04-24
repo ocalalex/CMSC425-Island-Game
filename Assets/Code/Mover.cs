@@ -93,14 +93,18 @@ public class Mover : MonoBehaviour
         if (input != Vector3.zero)
         {
             input.Normalize();
-            Vector3 move = input * speed * Time.fixedDeltaTime;
+            Vector3 move = input * speed * Time.deltaTime;
+            Debug.Log(move);
 
             bool moveBool = true;
 
-            if (Physics.Raycast(rb.position, input, out RaycastHit hit, move.magnitude + collisionBuffer))
+            bool topRay = Physics.Raycast(rb.position + new Vector3(0,1.25f, 0), input, out RaycastHit hit, move.magnitude + collisionBuffer);
+            bool middleRay = Physics.Raycast(rb.position, input, out RaycastHit hit2, move.magnitude + collisionBuffer);
+            bool bottomRay = Physics.Raycast(rb.position + new Vector3(0,-1.25f, 0), input, out RaycastHit hit3, move.magnitude + collisionBuffer);
+
+            if (topRay || middleRay || bottomRay)
             {
                 if (hit.collider.CompareTag("Wall") || hit.collider.CompareTag("Ground")) {
-                    Debug.Log("don't move");
                     moveBool = false; 
                 }
                 
