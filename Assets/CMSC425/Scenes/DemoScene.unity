@@ -6741,7 +6741,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 503
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -24352,15 +24352,16 @@ MonoBehaviour:
   userMarker: {fileID: 347776840}
   keyMarkerText: {fileID: 1523667804}
   keyMarkerDot: {fileID: 862145271}
+  collisionBuffer: 1.2
   fdKeyNum: 37
   bkKeyNum: 33
   ltKeyNum: 15
   rtKeyNum: 18
-  speed: 6
+  speed: 12
   jmpKeyNum: 1
   mapKeyNum: 27
   inMapView: 0
-  jumpSize: 2
+  jumpSize: 5
   mainCamera: {fileID: 691510995}
   mapCamera: {fileID: 2005334129}
 --- !u!136 &2080557017
