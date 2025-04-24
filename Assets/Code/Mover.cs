@@ -104,7 +104,7 @@ public class Mover : MonoBehaviour
 
             if (topRay || middleRay || bottomRay)
             {
-                if (hit.collider.CompareTag("Wall") || hit.collider.CompareTag("Ground")) {
+                if (!hit.collider.CompareTag("Tree")) { //Trees have a large collider that protects the user from the lighthouse
                     moveBool = false; 
                 }
                 
