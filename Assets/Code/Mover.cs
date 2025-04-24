@@ -11,6 +11,8 @@ public class Mover : MonoBehaviour
     public GameObject userMarker;
     public GameObject keyMarkerText;
     public GameObject keyMarkerDot;
+
+    public float collisionBuffer = 0.5f;
     public Key fdKeyNum = Key.UpArrow;
     public Key bkKeyNum = Key.DownArrow;
     public Key ltKeyNum = Key.LeftArrow;
@@ -95,7 +97,7 @@ public class Mover : MonoBehaviour
 
             bool moveBool = true;
 
-            if (Physics.Raycast(rb.position, input, out RaycastHit hit, move.magnitude + 0.1f))
+            if (Physics.Raycast(rb.position, input, out RaycastHit hit, move.magnitude + collisionBuffer))
             {
                 if (hit.collider.CompareTag("Wall") || hit.collider.CompareTag("Ground")) {
                     Debug.Log("don't move");
@@ -104,13 +106,12 @@ public class Mover : MonoBehaviour
                 
             }
 
-            if (moveBool) {
+            if (moveBool) 
+            {
                 rb.MovePosition(rb.position + move);
             }
             
         }
-
-        CheckGrounded();
 
         if (jmpKey.isPressed && onGround)
         {
@@ -118,10 +119,24 @@ public class Mover : MonoBehaviour
             rb.AddForce(jumpSize*impulse, ForceMode.Impulse);
             onGround = false;
         }
+
+        if (rb.linearVelocity.y > jumpSize)
+        {
+            rb.linearVelocity = new Vector3(rb.linearVelocity.x, jumpSize, rb.linearVelocity.z);
+        }
     }
-    void CheckGrounded()
+    void OnCollisionStay(Collision collision)
     {
-        Ray ray = new Ray(feet.transform.position, Vector3.down);
-        onGround = Physics.Raycast(ray, 0.5f);
+        if (!onGround) 
+        {
+            foreach (ContactPoint contact in collision.contacts)
+            {
+                if (Vector3.Dot(contact.normal, Vector3.up) > 0.5f)
+                {
+                    onGround = true;
+                    return;
+                }
+            }
+        }
     }
 }
