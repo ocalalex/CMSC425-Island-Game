@@ -516,7 +516,7 @@ GameObject:
   - component: {fileID: 48488658}
   m_Layer: 0
   m_Name: BuildingTriggerZone
-  m_TagString: Building
+  m_TagString: WalkThrough
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

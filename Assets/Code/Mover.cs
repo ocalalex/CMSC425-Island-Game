@@ -59,14 +59,10 @@ public class Mover : MonoBehaviour
     {
         Vector3 input = Vector3.zero;
 
-        if (fdKey.isPressed)
-            input += transform.forward;
-        if (bkKey.isPressed)
-            input -= transform.forward;
-        if (ltKey.isPressed)
-            input -= transform.right;
-        if (rtKey.isPressed)
-            input += transform.right;
+        if (fdKey.isPressed) input += transform.forward;
+        if (bkKey.isPressed) input -= transform.forward;
+        if (ltKey.isPressed) input -= transform.right;
+        if (rtKey.isPressed) input += transform.right;
         if (mapKey.wasReleasedThisFrame)
         {
             if (inventory.CheckItem(map)) 
@@ -94,26 +90,50 @@ public class Mover : MonoBehaviour
         {
             input.Normalize();
             Vector3 move = input * speed * Time.deltaTime;
-            Debug.Log(move);
 
-            bool moveBool = true;
+            Vector3 moveX = new Vector3(move.x, 0, 0);
+            Vector3 moveZ = new Vector3(0, 0, move.z);
 
-            bool topRay = Physics.Raycast(rb.position + new Vector3(0,1.25f, 0), input, out RaycastHit hit, move.magnitude + collisionBuffer);
-            bool middleRay = Physics.Raycast(rb.position, input, out RaycastHit hit2, move.magnitude + collisionBuffer);
-            bool bottomRay = Physics.Raycast(rb.position + new Vector3(0,-1.25f, 0), input, out RaycastHit hit3, move.magnitude + collisionBuffer);
+            Vector3 topPos = rb.position + new Vector3(0, 1.25f, 0);
+            Vector3 bottomPos = rb.position + new Vector3(0, -1.25f, 0);
 
-            if (topRay || middleRay || bottomRay)
-            {
-                if (!hit.collider.CompareTag("Tree")) { //Trees have a large collider that protects the user from the lighthouse
-                    moveBool = false; 
+            bool checkTopX = Physics.Raycast(topPos, moveX, out RaycastHit hitTopX, moveX.magnitude + collisionBuffer);
+            bool checkBottomX = Physics.Raycast(bottomPos, moveX, out RaycastHit hitBottomX, moveX.magnitude + collisionBuffer);
+            if (checkTopX) {
+                bool hitInvisColl = hitTopX.collider.CompareTag("Tree") || hitTopX.collider.CompareTag("WalkThrough");
+
+                if (!hitInvisColl) {
+                    move.x = 0;
                 }
-                
+            }
+            if (checkBottomX) {
+                bool hitInvisColl = hitBottomX.collider.CompareTag("Tree") || hitBottomX.collider.CompareTag("WalkThrough");
+
+                if (!hitInvisColl) {
+                    move.x = 0;
+                }
             }
 
-            if (moveBool) 
-            {
-                rb.MovePosition(rb.position + move);
+            bool checkTopZ = Physics.Raycast(topPos, moveZ, out RaycastHit hitTopZ, moveZ.magnitude + collisionBuffer);
+            bool checkBottomZ = Physics.Raycast(bottomPos, moveZ, out RaycastHit hitBottomZ, moveZ.magnitude + collisionBuffer);
+            bool checkZ = checkTopZ || checkBottomZ;
+
+            if (checkTopZ) {
+                bool hitInvisColl = hitTopZ.collider.CompareTag("Tree") || hitTopZ.collider.CompareTag("WalkThrough");
+
+                if (!hitInvisColl) {
+                    move.z = 0;
+                }
             }
+            if (checkBottomZ) {
+                bool hitInvisColl = hitBottomZ.collider.CompareTag("Tree") || hitBottomZ.collider.CompareTag("WalkThrough");
+
+                if (!hitInvisColl) {
+                    move.z = 0;
+                }
+            }
+
+            rb.MovePosition(rb.position + move);
             
         }
 

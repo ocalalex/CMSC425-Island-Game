@@ -10,6 +10,7 @@ TagManager:
   - LadderBottom
   - Wall
   - Tree
+  - WalkThrough
   layers:
   - Default
   - TransparentFX
