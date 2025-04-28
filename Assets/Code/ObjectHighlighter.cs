@@ -30,25 +30,27 @@ public class ObjectHighlighter : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        RaycastHit hit;
+        if (Camera.main != null) { // checks that the camera attached to the player is the active camera
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            RaycastHit hit;
 
-        if (Physics.Raycast(ray, out hit, highlightDistance, objectsLayer)) {
-            if (hit.transform == transform) {
-                foreach (var renderer in renderers)
-                {
-                    renderer.material.SetColor("_EmissionColor", highlightColor*highlightIntensity);
+            if (Physics.Raycast(ray, out hit, highlightDistance, objectsLayer)) {
+                if (hit.transform == transform) {
+                    foreach (var renderer in renderers)
+                    {
+                        renderer.material.SetColor("_EmissionColor", highlightColor*highlightIntensity);
+                    }
+                } else {
+                    foreach (var renderer in renderers)
+                    {
+                        renderer.material.SetColor("_EmissionColor", Color.black);
+                    }
                 }
             } else {
                 foreach (var renderer in renderers)
                 {
                     renderer.material.SetColor("_EmissionColor", Color.black);
                 }
-            }
-        } else {
-            foreach (var renderer in renderers)
-            {
-                renderer.material.SetColor("_EmissionColor", Color.black);
             }
         }
     }
