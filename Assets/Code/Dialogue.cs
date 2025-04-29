@@ -9,11 +9,8 @@ public class Dialogue : MonoBehaviour
     public string[] lines; //stores the lines 
     public float textSpeed; //speed that the lines will be displayed
     private int index; //curr index that we are at in lines
-
-    public GameObject player; //reference to the player
-    public GameObject playerCamera; //reference to the camera of the player 
-
     public Collider buildingTrigger; //reference to the building 
+    public List<Behaviour> componentsToDisable = new List<Behaviour>(); //list of components to disable when the dialogue starts
     private bool hasExitedBuilding = false; //see if user has exited building
     public bool isSpotted = false;
    
@@ -21,8 +18,7 @@ public class Dialogue : MonoBehaviour
     void Start()
     {
         textComponent.text = string.Empty;
-        player.GetComponent<Mover>().enabled = false; //disable movement of the player 
-        playerCamera.GetComponent<Looker>().enabled = false;
+        disableComponents();
         StartDialogue();
     }
 
@@ -57,8 +53,7 @@ public class Dialogue : MonoBehaviour
             textComponent.text = string.Empty;
             StartCoroutine(TypeLine());
         } else {
-            player.GetComponent<Mover>().enabled = true; //allows player to move again
-            playerCamera.GetComponent<Looker>().enabled = true;
+            enableComponents();
             gameObject.SetActive(false);
         }
     }
@@ -88,8 +83,7 @@ void InsertExitLine()
     index = 0;
     textComponent.text = string.Empty;
 
-    player.GetComponent<Mover>().enabled = false;
-    playerCamera.GetComponent<Looker>().enabled = false;
+    disableComponents();
 
     gameObject.SetActive(true); // Reactivate the dialogue box
     StartCoroutine(TypeLine());
@@ -101,9 +95,23 @@ void InsertSpottedLine()
     index = 0;
     textComponent.text = string.Empty;
 
-    player.GetComponent<Mover>().enabled = false;
-    playerCamera.GetComponent<Looker>().enabled = false;
+    disableComponents();
     gameObject.SetActive(true); // Reactivate the dialogue box
     StartCoroutine(TypeLine());
 }
+void disableComponents()
+{
+    foreach (Behaviour component in componentsToDisable) {
+        component.enabled = false; //disable all the components in the list
+    }
 }
+void enableComponents()
+{
+    foreach (Behaviour component in componentsToDisable) {
+        component.enabled = true; //enable all the components in the list
+    }
+}
+
+}
+
+
