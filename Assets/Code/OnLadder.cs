@@ -8,6 +8,7 @@ public class OnLadder : MonoBehaviour
     {
         if (other.gameObject == player)
         {
+            Debug.Log("On ladder");
             Rigidbody playerRB = player.GetComponent<Rigidbody>();
             playerRB.isKinematic = true;
 

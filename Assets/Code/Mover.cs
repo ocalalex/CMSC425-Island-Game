@@ -1,3 +1,4 @@
+using System;
 using UnityEditor.Callbacks;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -53,16 +54,23 @@ public class Mover : MonoBehaviour
 
             bool checkTopX = Physics.Raycast(topPos, moveX, out RaycastHit hitTopX, moveX.magnitude + collisionBuffer);
             bool checkBottomX = Physics.Raycast(bottomPos, moveX, out RaycastHit hitBottomX, moveX.magnitude + collisionBuffer);
+
+            String[] tagsToWalkThrough = {"Tree", "WalkThrough", "LadderBottom", "LadderTop"};
             if (checkTopX) {
-                bool hitInvisColl = hitTopX.collider.CompareTag("Tree") || hitTopX.collider.CompareTag("WalkThrough");
+                bool hitInvisColl = false;
+                foreach (String tag in tagsToWalkThrough) {
+                    hitInvisColl = hitInvisColl || hitTopX.collider.CompareTag(tag);
+                }
 
                 if (!hitInvisColl) {
                     move.x = 0;
                 }
             }
             if (checkBottomX) {
-                bool hitInvisColl = hitBottomX.collider.CompareTag("Tree") || hitBottomX.collider.CompareTag("WalkThrough");
-
+                bool hitInvisColl = false;
+                foreach (String tag in tagsToWalkThrough) {
+                    hitInvisColl = hitInvisColl || hitBottomX.collider.CompareTag(tag);
+                }
                 if (!hitInvisColl) {
                     move.x = 0;
                 }
@@ -73,15 +81,19 @@ public class Mover : MonoBehaviour
             bool checkZ = checkTopZ || checkBottomZ;
 
             if (checkTopZ) {
-                bool hitInvisColl = hitTopZ.collider.CompareTag("Tree") || hitTopZ.collider.CompareTag("WalkThrough");
-
+                bool hitInvisColl = false;
+                foreach (String tag in tagsToWalkThrough) {
+                    hitInvisColl = hitInvisColl || hitTopZ.collider.CompareTag(tag);
+                }
                 if (!hitInvisColl) {
                     move.z = 0;
                 }
             }
             if (checkBottomZ) {
-                bool hitInvisColl = hitBottomZ.collider.CompareTag("Tree") || hitBottomZ.collider.CompareTag("WalkThrough");
-
+                bool hitInvisColl = false;
+                foreach (String tag in tagsToWalkThrough) {
+                    hitInvisColl = hitInvisColl || hitBottomZ.collider.CompareTag(tag);
+                }
                 if (!hitInvisColl) {
                     move.z = 0;
                 }

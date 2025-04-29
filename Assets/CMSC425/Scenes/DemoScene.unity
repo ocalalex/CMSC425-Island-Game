@@ -670,8 +670,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.5, y: 0.2, z: 0.5}
-  m_Center: {x: 0, y: -0.35, z: 0.5}
+  m_Size: {x: 0.5, y: 0.13640995, z: 0.5}
+  m_Center: {x: 0, y: -0.38179502, z: 0.5}
 --- !u!1001 &63734011
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -863,6 +863,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: de490e8efbe9e40c288c580204e7ec89, type: 3}
       propertyPath: m_Name
       value: ladder (24)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: de490e8efbe9e40c288c580204e7ec89, type: 3}
+      propertyPath: m_TagString
+      value: WalkThrough
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1158,6 +1162,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: de490e8efbe9e40c288c580204e7ec89, type: 3}
       propertyPath: m_Name
       value: ladder (13)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: de490e8efbe9e40c288c580204e7ec89, type: 3}
+      propertyPath: m_TagString
+      value: WalkThrough
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2063,6 +2071,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ladder (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: de490e8efbe9e40c288c580204e7ec89, type: 3}
+      propertyPath: m_TagString
+      value: WalkThrough
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2347,7 +2359,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inventoryImage: {fileID: -1413148874, guid: d2855f83c9a404f32adf32d69545102c, type: 3}
   inventory: {fileID: 180306847}
-  clickRadius: 6
+  clickRadius: 10
   playerObject: {fileID: 2080557013}
 --- !u!65 &210166373
 BoxCollider:
@@ -2415,7 +2427,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerObject: {fileID: 2080557013}
-  highlightDistance: 20
+  highlightDistance: 10
   highlightColor: {r: 0.69411767, g: 0.69411767, b: 0.69411767, a: 1}
   highlightIntensity: 0.5
 --- !u!1001 &243883559
@@ -2559,6 +2571,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ladder (15)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: de490e8efbe9e40c288c580204e7ec89, type: 3}
+      propertyPath: m_TagString
+      value: WalkThrough
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2699,6 +2715,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ladder
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: de490e8efbe9e40c288c580204e7ec89, type: 3}
+      propertyPath: m_TagString
+      value: WalkThrough
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2708,6 +2728,11 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: de490e8efbe9e40c288c580204e7ec89, type: 3}
   m_PrefabInstance: {fileID: 256002179}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &263697725 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 4a78e2bfbd839471482955516b006555, type: 3}
+  m_PrefabInstance: {fileID: 593350544}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &270510201 stripped
 GameObject:
@@ -3276,6 +3301,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ladder (23)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: de490e8efbe9e40c288c580204e7ec89, type: 3}
+      propertyPath: m_TagString
+      value: WalkThrough
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3430,6 +3459,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: de490e8efbe9e40c288c580204e7ec89, type: 3}
       propertyPath: m_Name
       value: ladder (16)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: de490e8efbe9e40c288c580204e7ec89, type: 3}
+      propertyPath: m_TagString
+      value: WalkThrough
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3886,6 +3919,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: de490e8efbe9e40c288c580204e7ec89, type: 3}
       propertyPath: m_Name
       value: ladder (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: de490e8efbe9e40c288c580204e7ec89, type: 3}
+      propertyPath: m_TagString
+      value: WalkThrough
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4352,6 +4389,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: de490e8efbe9e40c288c580204e7ec89, type: 3}
       propertyPath: m_Name
       value: ladder (10)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: de490e8efbe9e40c288c580204e7ec89, type: 3}
+      propertyPath: m_TagString
+      value: WalkThrough
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4888,7 +4929,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: de490e8efbe9e40c288c580204e7ec89, type: 3}
       propertyPath: m_TagString
-      value: Ground
+      value: WalkThrough
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4966,6 +5007,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: de490e8efbe9e40c288c580204e7ec89, type: 3}
       propertyPath: m_Name
       value: ladder (11)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: de490e8efbe9e40c288c580204e7ec89, type: 3}
+      propertyPath: m_TagString
+      value: WalkThrough
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5384,6 +5429,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: de490e8efbe9e40c288c580204e7ec89, type: 3}
       propertyPath: m_Name
       value: ladder (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: de490e8efbe9e40c288c580204e7ec89, type: 3}
+      propertyPath: m_TagString
+      value: WalkThrough
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5893,13 +5942,38 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 4a78e2bfbd839471482955516b006555, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1991577047}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 4a78e2bfbd839471482955516b006555, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 593350548}
   m_SourcePrefab: {fileID: 100100000, guid: 4a78e2bfbd839471482955516b006555, type: 3}
 --- !u!4 &593350545 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 4a78e2bfbd839471482955516b006555, type: 3}
   m_PrefabInstance: {fileID: 593350544}
   m_PrefabAsset: {fileID: 0}
+--- !u!64 &593350548
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 263697725}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -6597873057328749424, guid: 4a78e2bfbd839471482955516b006555, type: 3}
 --- !u!1001 &600554487
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7355,6 +7429,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ladder (18)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: de490e8efbe9e40c288c580204e7ec89, type: 3}
+      propertyPath: m_TagString
+      value: WalkThrough
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -7501,6 +7579,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: de490e8efbe9e40c288c580204e7ec89, type: 3}
       propertyPath: m_Name
       value: ladder (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: de490e8efbe9e40c288c580204e7ec89, type: 3}
+      propertyPath: m_TagString
+      value: WalkThrough
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -8451,7 +8533,7 @@ Light:
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 0
+    m_Type: 1
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1
@@ -9248,6 +9330,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ladder (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: de490e8efbe9e40c288c580204e7ec89, type: 3}
+      propertyPath: m_TagString
+      value: WalkThrough
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -9932,6 +10018,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: de490e8efbe9e40c288c580204e7ec89, type: 3}
       propertyPath: m_Name
       value: ladder (22)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: de490e8efbe9e40c288c580204e7ec89, type: 3}
+      propertyPath: m_TagString
+      value: WalkThrough
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -11265,6 +11355,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: de490e8efbe9e40c288c580204e7ec89, type: 3}
       propertyPath: m_Name
       value: ladder (19)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: de490e8efbe9e40c288c580204e7ec89, type: 3}
+      propertyPath: m_TagString
+      value: WalkThrough
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -14232,6 +14326,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ladder (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: de490e8efbe9e40c288c580204e7ec89, type: 3}
+      propertyPath: m_TagString
+      value: WalkThrough
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -14767,27 +14865,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 25f9a7996b21243878b64f3968478481, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.3420439
+      value: 0.22
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 25f9a7996b21243878b64f3968478481, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -17.619171
+      value: -13.12
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 25f9a7996b21243878b64f3968478481, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.9374037
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 25f9a7996b21243878b64f3968478481, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 25f9a7996b21243878b64f3968478481, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0.3482448
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 25f9a7996b21243878b64f3968478481, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 25f9a7996b21243878b64f3968478481, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -14795,7 +14893,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 25f9a7996b21243878b64f3968478481, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
+      value: 40.76
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 25f9a7996b21243878b64f3968478481, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -14896,7 +14994,7 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 4a78e2bfbd839471482955516b006555, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1311575070}
+      addedObject: {fileID: 1311575073}
   m_SourcePrefab: {fileID: 100100000, guid: 4a78e2bfbd839471482955516b006555, type: 3}
 --- !u!4 &1293993195 stripped
 Transform:
@@ -15127,8 +15225,8 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 4a78e2bfbd839471482955516b006555, type: 3}
   m_PrefabInstance: {fileID: 1293993194}
   m_PrefabAsset: {fileID: 0}
---- !u!136 &1311575070
-CapsuleCollider:
+--- !u!64 &1311575073
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -15145,11 +15243,10 @@ CapsuleCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Height: 0.6
-  m_Direction: 1
-  m_Center: {x: 0, y: 0.3, z: 0}
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -6597873057328749424, guid: 4a78e2bfbd839471482955516b006555, type: 3}
 --- !u!1001 &1317922773
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15690,6 +15787,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ladder (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: de490e8efbe9e40c288c580204e7ec89, type: 3}
+      propertyPath: m_TagString
+      value: WalkThrough
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -15843,6 +15944,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: de490e8efbe9e40c288c580204e7ec89, type: 3}
       propertyPath: m_Name
       value: ladder (20)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: de490e8efbe9e40c288c580204e7ec89, type: 3}
+      propertyPath: m_TagString
+      value: WalkThrough
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -16676,7 +16781,7 @@ Transform:
   m_GameObject: {fileID: 1490078748}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 2.9, z: 0}
+  m_LocalPosition: {x: 0, y: 3, z: 0}
   m_LocalScale: {x: 100, y: 1, z: 100}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -18021,6 +18126,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ladder (17)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: de490e8efbe9e40c288c580204e7ec89, type: 3}
+      propertyPath: m_TagString
+      value: WalkThrough
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -18727,6 +18836,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ladder (26)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: de490e8efbe9e40c288c580204e7ec89, type: 3}
+      propertyPath: m_TagString
+      value: WalkThrough
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -19090,6 +19203,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: de490e8efbe9e40c288c580204e7ec89, type: 3}
       propertyPath: m_Name
       value: ladder (21)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: de490e8efbe9e40c288c580204e7ec89, type: 3}
+      propertyPath: m_TagString
+      value: WalkThrough
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -19790,6 +19907,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: de490e8efbe9e40c288c580204e7ec89, type: 3}
       propertyPath: m_Name
       value: ladder (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: de490e8efbe9e40c288c580204e7ec89, type: 3}
+      propertyPath: m_TagString
+      value: WalkThrough
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -22809,6 +22930,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ladder (25)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: de490e8efbe9e40c288c580204e7ec89, type: 3}
+      propertyPath: m_TagString
+      value: WalkThrough
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -23077,6 +23202,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: de490e8efbe9e40c288c580204e7ec89, type: 3}
       propertyPath: m_Name
       value: ladder (28)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: de490e8efbe9e40c288c580204e7ec89, type: 3}
+      propertyPath: m_TagString
+      value: WalkThrough
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -24047,6 +24176,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ladder (12)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: de490e8efbe9e40c288c580204e7ec89, type: 3}
+      propertyPath: m_TagString
+      value: WalkThrough
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -24070,7 +24203,7 @@ GameObject:
   - component: {fileID: 1991577048}
   m_Layer: 0
   m_Name: Ladder
-  m_TagString: Untagged
+  m_TagString: WalkThrough
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -25275,6 +25408,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ladder (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: de490e8efbe9e40c288c580204e7ec89, type: 3}
+      propertyPath: m_TagString
+      value: WalkThrough
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -25551,6 +25688,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: de490e8efbe9e40c288c580204e7ec89, type: 3}
       propertyPath: m_Name
       value: ladder (14)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: de490e8efbe9e40c288c580204e7ec89, type: 3}
+      propertyPath: m_TagString
+      value: WalkThrough
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -26247,6 +26388,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: de490e8efbe9e40c288c580204e7ec89, type: 3}
       propertyPath: m_Name
       value: ladder (27)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: de490e8efbe9e40c288c580204e7ec89, type: 3}
+      propertyPath: m_TagString
+      value: WalkThrough
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

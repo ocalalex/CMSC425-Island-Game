@@ -13,7 +13,6 @@ public class Jumper : MonoBehaviour
     Rigidbody rb;
     private bool onGround = true;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -22,7 +21,6 @@ public class Jumper : MonoBehaviour
         
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (jmpKey.isPressed && onGround)
@@ -45,7 +43,7 @@ public class Jumper : MonoBehaviour
         {
             foreach (ContactPoint contact in collision.contacts)
             {
-                if (Vector3.Dot(contact.normal, Vector3.up) > 0.5f)
+                if (contact.normal.y > 0.5f)
                 {
                     onGround = true;
                     return;
