@@ -7,7 +7,12 @@ public class Shooter : MonoBehaviour
 
     [Header("Shooting Settings")]
     public float shotDuration = 0.2f;
+    public float maxDistance = 100f;
+
+    [Header("Bullet Settings")]
+    public GameObject bulletPrefab;
     public float bulletSpeed = 20f;
+    public float bulletDuration = 5f;
     
 
     [Header("Muzzle Flash")]
@@ -17,9 +22,9 @@ public class Shooter : MonoBehaviour
     public Vector3 recoilRotation = new Vector3(-10f, 0f, 0f);
 
     [Header("Object References")]
-    public GameObject bulletPrefab;
     public Transform firePoint;
     public GameObject user;
+    public Camera userCamera;
 
     Equipper equipper;
 
@@ -40,7 +45,6 @@ public class Shooter : MonoBehaviour
     // Update is called once per frame
     void Update()
     {   
-        Debug.Log("Equipper equipped: " + equipper.isEquipped());
         if(canShoot && equipper.isEquipped() && Input.GetMouseButtonDown(0)){
             shoot();
         }
@@ -64,22 +68,46 @@ public class Shooter : MonoBehaviour
             Debug.LogError("Muzzle flash point not assigned.");
             return;
         }
+        if(userCamera == null){
+            Debug.LogError("Player camera not assigned.");
+            return;
+        }
 
+        //apply recoil to gun
         if(recoilCoroutine != null){
             StopCoroutine(recoilCoroutine);
         }
         recoilCoroutine = StartCoroutine(Recoil());
 
-        Transform spawnPoint = firePoint;
-        GameObject bullet = Instantiate(bulletPrefab, spawnPoint.position, spawnPoint.rotation);
+        Ray ray = userCamera.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
+        RaycastHit hit;
+        Vector3 targetPoint;
+
+        //bullet hit something
+        if(Physics.Raycast(ray, out hit, maxDistance)){
+            targetPoint = hit.point;
+        }
+        //buillet did not hit anything
+        else{
+            targetPoint = ray.GetPoint(maxDistance);
+        }
+
+        //direction of firePoint to targetPoint
+        Vector3 direction = (targetPoint - firePoint.position).normalized;
+
+        //spawn and shoot the bullet
+        GameObject bullet = Instantiate(bulletPrefab, firePoint.position, Quaternion.LookRotation(direction));
         Rigidbody rb = bullet.GetComponent<Rigidbody>();
         if(rb != null){
-            rb.AddForce(spawnPoint.forward * bulletSpeed, ForceMode.Impulse);
+            rb.linearVelocity = direction * bulletSpeed;
         }else{
             Debug.LogError("Bullet prefab does not have a Rigidbody component.");
         }
-        Destroy(bullet, 8f);
+        Destroy(bullet, bulletDuration);
+
         StartCoroutine(ShootCooldown());
+
+        //create muzzle flash
         GameObject flash = Instantiate(muzzleFlash, muzzleFlashPoint.position, muzzleFlashPoint.rotation);
         flash.transform.parent = muzzleFlashPoint;
         Destroy(flash, muzzleFlashDuration);
