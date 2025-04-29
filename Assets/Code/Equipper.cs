@@ -14,6 +14,7 @@ public class Equipper : MonoBehaviour
 
     [SerializeField]
     private Vector3 itemOffset = new Vector3(-0.5f, 1.5f, 1);
+    private Vector3 rotationOffset = Vector3.zero;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -46,7 +47,7 @@ public class Equipper : MonoBehaviour
         equipped = true;
         item.transform.SetParent(hand.transform, false);
         item.transform.localPosition = Vector3.zero;
-        item.transform.rotation = Quaternion.LookRotation(transform.forward);
+        item.transform.localRotation = Quaternion.Euler(rotationOffset);
         item.transform.localPosition += itemOffset;
         
     }

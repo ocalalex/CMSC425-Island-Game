@@ -19,6 +19,9 @@ public class Shooter : MonoBehaviour
     public GameObject muzzleFlash;
     public Transform muzzleFlashPoint;
     public float muzzleFlashDuration = 0.1f;
+
+    [Header("Recoil Settings")]
+    public float recoilDuration = 0.1f;
     public Vector3 recoilRotation = new Vector3(-10f, 0f, 0f);
 
     [Header("Object References")]
@@ -122,15 +125,15 @@ public class Shooter : MonoBehaviour
         Quaternion originalRotation = transform.localRotation;
         Quaternion targetRotation = originalRotation * Quaternion.Euler(recoilRotation);
         float elapsedTime = 0f;
-        while (elapsedTime < shotDuration/2)
+        while (elapsedTime < recoilDuration/2)
         {
-            float progress = elapsedTime / shotDuration;
+            float progress = elapsedTime / recoilDuration;
             transform.localRotation = Quaternion.Slerp(originalRotation, targetRotation, progress);
             elapsedTime += Time.deltaTime;
             yield return null;
         }
-        while (elapsedTime < shotDuration){
-            float progress = elapsedTime / shotDuration;
+        while (elapsedTime < recoilDuration){
+            float progress = elapsedTime / recoilDuration;
             elapsedTime += Time.deltaTime;
             transform.localRotation = Quaternion.Slerp(targetRotation, originalRotation, progress);
             yield return null;
