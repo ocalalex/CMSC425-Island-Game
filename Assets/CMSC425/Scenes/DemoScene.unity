@@ -25594,6 +25594,8 @@ GameObject:
   - component: {fileID: 2080557022}
   - component: {fileID: 2080557023}
   - component: {fileID: 2080557024}
+  - component: {fileID: 2080557026}
+  - component: {fileID: 2080557025}
   m_Layer: 3
   m_Name: User
   m_TagString: Untagged
@@ -25801,6 +25803,41 @@ MonoBehaviour:
   hand: {fileID: 835062857}
   item: {fileID: 549928972}
   itemOffset: {x: 0, y: 0, z: 1}
+--- !u!114 &2080557025
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2080557013}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63d5b86f0f3d8e2438f7a12cc8890bab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inventory: {fileID: 180306847}
+  map: {fileID: 2057917931}
+  userMarker: {fileID: 347776840}
+  keyMarkerText: {fileID: 1523667804}
+  keyMarkerDot: {fileID: 862145271}
+  mapKeyNum: 27
+  inMapView: 0
+  mainCamera: {fileID: 691510995}
+  mapCamera: {fileID: 2005334129}
+--- !u!114 &2080557026
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2080557013}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 384a812ac7e1339489de351826acc66e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  jmpKeyNum: 1
+  jumpSize: 12
 --- !u!1001 &2093820573
 PrefabInstance:
   m_ObjectHideFlags: 0
