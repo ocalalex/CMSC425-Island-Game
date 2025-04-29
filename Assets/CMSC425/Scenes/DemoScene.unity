@@ -3640,6 +3640,9 @@ MonoBehaviour:
   inventory: {fileID: 180306847}
   clickRadius: 10
   playerObject: {fileID: 2080557013}
+  dialogueEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!65 &210166373
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -24059,6 +24062,9 @@ MonoBehaviour:
   inventory: {fileID: 180306847}
   clickRadius: 20
   playerObject: {fileID: 2080557013}
+  dialogueEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!54 &1464603564
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -36498,6 +36504,21 @@ MonoBehaviour:
   inventory: {fileID: 180306847}
   clickRadius: 20
   playerObject: {fileID: 2080557013}
+  dialogueEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1894785195}
+        m_TargetAssemblyTypeName: Dialogue, Assembly-CSharp
+        m_MethodName: InsertPickupMapLine
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!65 &2057917933
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -38430,7 +38451,7 @@ PrefabInstance:
       objectReference: {fileID: 908635855}
     - target: {fileID: 300595009930150979, guid: 3c1bd4010543d3a4bab731bb04d81ce9, type: 3}
       propertyPath: m_VersionIndex
-      value: 4497
+      value: 4500
       objectReference: {fileID: 0}
     - target: {fileID: 486911701534558160, guid: 3c1bd4010543d3a4bab731bb04d81ce9, type: 3}
       propertyPath: m_Mesh
@@ -38448,13 +38469,41 @@ PrefabInstance:
       propertyPath: playerObject
       value: 
       objectReference: {fileID: 2080557013}
+    - target: {fileID: 813712426019682692, guid: 3c1bd4010543d3a4bab731bb04d81ce9, type: 3}
+      propertyPath: dialogueEvent.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 813712426019682692, guid: 3c1bd4010543d3a4bab731bb04d81ce9, type: 3}
+      propertyPath: dialogueEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 813712426019682692, guid: 3c1bd4010543d3a4bab731bb04d81ce9, type: 3}
+      propertyPath: dialogueEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1894785195}
+    - target: {fileID: 813712426019682692, guid: 3c1bd4010543d3a4bab731bb04d81ce9, type: 3}
+      propertyPath: dialogueEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 813712426019682692, guid: 3c1bd4010543d3a4bab731bb04d81ce9, type: 3}
+      propertyPath: dialogueEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: InsertPickupGunLine
+      objectReference: {fileID: 0}
+    - target: {fileID: 813712426019682692, guid: 3c1bd4010543d3a4bab731bb04d81ce9, type: 3}
+      propertyPath: dialogueEvent.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Dialogue, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 813712426019682692, guid: 3c1bd4010543d3a4bab731bb04d81ce9, type: 3}
+      propertyPath: dialogueEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 1648014576192026537, guid: 3c1bd4010543d3a4bab731bb04d81ce9, type: 3}
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 1813886732}
     - target: {fileID: 1648014576192026537, guid: 3c1bd4010543d3a4bab731bb04d81ce9, type: 3}
       propertyPath: m_VersionIndex
-      value: 4680
+      value: 4683
       objectReference: {fileID: 0}
     - target: {fileID: 2650034557196631778, guid: 3c1bd4010543d3a4bab731bb04d81ce9, type: 3}
       propertyPath: m_Mesh
@@ -38462,7 +38511,7 @@ PrefabInstance:
       objectReference: {fileID: 168355235}
     - target: {fileID: 2650034557196631778, guid: 3c1bd4010543d3a4bab731bb04d81ce9, type: 3}
       propertyPath: m_VersionIndex
-      value: 2614
+      value: 2617
       objectReference: {fileID: 0}
     - target: {fileID: 2920557129078810653, guid: 3c1bd4010543d3a4bab731bb04d81ce9, type: 3}
       propertyPath: m_Mesh
@@ -38474,7 +38523,7 @@ PrefabInstance:
       objectReference: {fileID: 984751684}
     - target: {fileID: 2930952254585430690, guid: 3c1bd4010543d3a4bab731bb04d81ce9, type: 3}
       propertyPath: m_VersionIndex
-      value: 6040
+      value: 6043
       objectReference: {fileID: 0}
     - target: {fileID: 2967631748682128366, guid: 3c1bd4010543d3a4bab731bb04d81ce9, type: 3}
       propertyPath: m_LocalPosition.x
@@ -38522,7 +38571,7 @@ PrefabInstance:
       objectReference: {fileID: 2024939910}
     - target: {fileID: 3467841743378295913, guid: 3c1bd4010543d3a4bab731bb04d81ce9, type: 3}
       propertyPath: m_VersionIndex
-      value: 5360
+      value: 5363
       objectReference: {fileID: 0}
     - target: {fileID: 3530740714837763370, guid: 3c1bd4010543d3a4bab731bb04d81ce9, type: 3}
       propertyPath: m_Mesh
@@ -38534,7 +38583,7 @@ PrefabInstance:
       objectReference: {fileID: 1105077351}
     - target: {fileID: 4058494054277502649, guid: 3c1bd4010543d3a4bab731bb04d81ce9, type: 3}
       propertyPath: m_VersionIndex
-      value: 2040
+      value: 2043
       objectReference: {fileID: 0}
     - target: {fileID: 4242774020429235748, guid: 3c1bd4010543d3a4bab731bb04d81ce9, type: 3}
       propertyPath: m_Mesh
@@ -38558,7 +38607,7 @@ PrefabInstance:
       objectReference: {fileID: 363093949}
     - target: {fileID: 4805885992073928641, guid: 3c1bd4010543d3a4bab731bb04d81ce9, type: 3}
       propertyPath: m_VersionIndex
-      value: 2504
+      value: 2507
       objectReference: {fileID: 0}
     - target: {fileID: 6040350687124227257, guid: 3c1bd4010543d3a4bab731bb04d81ce9, type: 3}
       propertyPath: m_Mesh
@@ -38594,7 +38643,7 @@ PrefabInstance:
       objectReference: {fileID: 1944360682}
     - target: {fileID: 7522670463606617301, guid: 3c1bd4010543d3a4bab731bb04d81ce9, type: 3}
       propertyPath: m_VersionIndex
-      value: 5248
+      value: 5251
       objectReference: {fileID: 0}
     - target: {fileID: 7779913267751807285, guid: 3c1bd4010543d3a4bab731bb04d81ce9, type: 3}
       propertyPath: playerObject
