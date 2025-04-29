@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Controls;
@@ -55,5 +56,10 @@ public class Equipper : MonoBehaviour
         equipped = false;
         item.SetActive(false);
         
+    }
+
+    public Boolean isEquipped()
+    {
+        return equipped;
     }
 }

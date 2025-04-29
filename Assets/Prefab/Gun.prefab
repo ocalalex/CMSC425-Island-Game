@@ -352,6 +352,37 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 0}
+--- !u!1 &367244875292699604
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6208061866516370548}
+  m_Layer: 0
+  m_Name: FirePoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6208061866516370548
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 367244875292699604}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.292, y: 0.4549999, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2967631748682128366}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1264472409627102031
 GameObject:
   m_ObjectHideFlags: 0
@@ -2121,6 +2152,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2967631748682128366}
+  - component: {fileID: 9042931549224601899}
   m_Layer: 0
   m_Name: Gun
   m_TagString: Untagged
@@ -2149,8 +2181,30 @@ Transform:
   - {fileID: 7617027043882222588}
   - {fileID: 2397233171717349225}
   - {fileID: 6511843551465465537}
+  - {fileID: 6208061866516370548}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &9042931549224601899
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6777298664591527866}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6eed392b8b303ea42a1401a5627258b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shotDuration: 0.4
+  bulletSpeed: 40
+  muzzleFlash: {fileID: 5990362774636531436, guid: 38a0bebd08dbec841b349ce0cff7b54c, type: 3}
+  muzzleFlashPoint: {fileID: 6208061866516370548}
+  muzzleFlashDuration: 0.08
+  recoilRotation: {x: -30, y: 0, z: 0}
+  bulletPrefab: {fileID: 5099684523764846149, guid: c84c2efda6bcad240a871163c0674a9d, type: 3}
+  firePoint: {fileID: 6208061866516370548}
+  user: {fileID: 0}
 --- !u!1 &7176366936515256001
 GameObject:
   m_ObjectHideFlags: 0
