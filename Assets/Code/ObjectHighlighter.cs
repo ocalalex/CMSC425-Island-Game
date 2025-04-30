@@ -20,7 +20,7 @@ public class ObjectHighlighter : MonoBehaviour
 
         renderers = GetComponentsInChildren<Renderer>(); 
 
-        // Enable emission keyword for all materials
+        // Enable emission for all children renderers
         foreach (var renderer in renderers)
         {
             renderer.material.EnableKeyword("_EMISSION");
