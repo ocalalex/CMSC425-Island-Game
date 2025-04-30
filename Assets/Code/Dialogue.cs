@@ -2,6 +2,7 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using System;
 
 public class Dialogue : MonoBehaviour
 {
@@ -97,6 +98,28 @@ void InsertSpottedLine()
 
     disableComponents();
     gameObject.SetActive(true); // Reactivate the dialogue box
+    StartCoroutine(TypeLine());
+}
+
+public void InsertPickupGunLine()
+{
+    lines = new string[] {"You picked up a gun!", "Press 'E' to equip it.", "It may come in handy later."};
+    index = 0;
+    textComponent.text = string.Empty;
+
+    disableComponents();
+    gameObject.SetActive(true);
+    StartCoroutine(TypeLine());
+}
+
+public void InsertPickupMapLine()
+{
+    lines = new string[] {"You found a map!", "Press 'M' to see the entire island."};
+    index = 0;
+    textComponent.text = string.Empty;
+
+    disableComponents();
+    gameObject.SetActive(true);
     StartCoroutine(TypeLine());
 }
 void disableComponents()

@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class SpotlightDetection : MonoBehaviour
@@ -10,10 +11,12 @@ public class SpotlightDetection : MonoBehaviour
     public Dialogue dialogue;
 
     private Light spotLight;
+    private Boolean spottedOnce;
 
     void Start()
     {
         spotLight = GetComponent<Light>();
+        spottedOnce = false;
     }
 
     void Update()
@@ -53,11 +56,17 @@ public class SpotlightDetection : MonoBehaviour
                         Teleporter teleporter = hit.collider.GetComponent<Teleporter>();
 
                         if(!actionTriggered && teleporter != null && dialogue != null){
+                            if(!spottedOnce){
+                                spottedOnce = true;
+                                dialogue.TriggerSpottedLine();
+                            }
                             actionTriggered = true;
-                            dialogue.TriggerSpottedLine();
                             teleporter.Teleport();
-                            dialogue.isSpotted = false;
-                            Debug.Log("Action triggered");
+                            if(!spottedOnce){
+                                dialogue.isSpotted = false;
+                            }
+                            
+
                         }
 
                         // Debug.Log("Spotlight detected: " + hit.collider.gameObject.name);
