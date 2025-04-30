@@ -19,13 +19,13 @@ public class PickUp : MonoBehaviour
     {
        objectsLayer = LayerMask.GetMask("Objects"); 
        if(dialogueEvent == null){
-            Debug.LogError("DialogueEvent is not assigned in the inspector.");
+            Debug.Log("DialogueEvent is not assigned in the inspector.");
        }
        if(inventory == null){
-            Debug.LogError("Inventory is not assigned in the inspector.");
+            Debug.Log("Inventory is not assigned in the inspector.");
        }
        if(inventoryImage == null){
-            Debug.LogError("InventoryImage is not assigned in the inspector.");
+            Debug.Log("InventoryImage is not assigned in the inspector.");
        }
     }
     void Update() {

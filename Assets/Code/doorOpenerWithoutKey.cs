@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class doorOpenerWithoutKey : MonoBehaviour
 {
+    public float doorOpenAngle = 90f;
     private bool isOpen = false;
 
     private void OnMouseDown()
@@ -9,7 +10,9 @@ public class doorOpenerWithoutKey : MonoBehaviour
         if (!isOpen)
         {
             Debug.Log("Door clicked");
-            transform.localRotation = Quaternion.Euler(0f, 90f, 0f);
+            Vector3 rotation = transform.localEulerAngles;
+            rotation.y += doorOpenAngle;
+            transform.localEulerAngles = rotation;
             isOpen = true;
         }
     }
