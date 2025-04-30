@@ -11,13 +11,10 @@ TagManager:
   - Wall
   - Tree
   - WalkThrough
-<<<<<<< Updated upstream
   - Bullet
-=======
   - OpenDifferently
   - OpenZ
   - OpenX
->>>>>>> Stashed changes
   layers:
   - Default
   - TransparentFX
