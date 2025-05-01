@@ -32,7 +32,7 @@ public class GetInBoat : MonoBehaviour
         float dist = Vector3.Distance(transform.position, player.position);
         if (dist <= clickRadius)
         {
-            if (inventory.CheckItem(gear) && inventory.CheckItem()) {
+            if (inventory.CheckItem(gear) && inventory.CheckItem(toolbox)) {
                 sitInBoat();
                 inventory.UseItem(gear);
                 if (!isMoving) {
