@@ -15,7 +15,7 @@ public class Mover : MonoBehaviour
     
     [Header("Movement Options")]
     public float speed = 10f;
-    public float collisionBuffer = 0.5f;
+    public float collisionBuffer = 0.5f; 
     KeyControl fdKey;
     KeyControl bkKey;
     KeyControl ltKey;

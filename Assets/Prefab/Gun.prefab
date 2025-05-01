@@ -2224,7 +2224,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d553ba2248ad4267902290b56583f2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inventoryImage: {fileID: 21300000, guid: b16171545115d6a4c81b43b0e1eb9282, type: 3}
+  inventoryImage: {fileID: 21300000, guid: 60cc3e75ff76c8144bb953139021f39a, type: 3}
   inventory: {fileID: 0}
   clickRadius: 20
   playerObject: {fileID: 0}
