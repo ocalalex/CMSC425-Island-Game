@@ -65,52 +65,69 @@ public class Dialogue : MonoBehaviour
         hasExitedBuilding = true;
         InsertExitLine();
     }
-}
 
     public void TriggerSpottedLine()
-{
-    if (!isSpotted)
     {
-        hasExitedBuilding = true;
-        InsertSpottedLine();
+        if (!isSpotted)
+        {
+            hasExitedBuilding = true;
+            InsertSpottedLine();
+        }
     }
-}
 
-void InsertExitLine()
-{
-    // Replace lines entirely with only the new one
-    lines = new string[] { "You step out of the building...Now find the boat and avoid being caught by the spotlight. Good luck!" };
-    index = 0;
-    textComponent.text = string.Empty;
-
-    disableComponents();
-
-    gameObject.SetActive(true); // Reactivate the dialogue box
-    StartCoroutine(TypeLine());
-}
-
-void InsertSpottedLine()
-{
-    lines = new string[] {"You have been caught by the spotlight!", "Try hiding under the trees next time."};
-    index = 0;
-    textComponent.text = string.Empty;
-
-    disableComponents();
-    gameObject.SetActive(true); // Reactivate the dialogue box
-    StartCoroutine(TypeLine());
-}
-void disableComponents()
-{
-    foreach (Behaviour component in componentsToDisable) {
-        component.enabled = false; //disable all the components in the list
+    public void TriggerBoatLine() 
+    {
+        InsertBoatLine();
     }
-}
-void enableComponents()
-{
-    foreach (Behaviour component in componentsToDisable) {
-        component.enabled = true; //enable all the components in the list
+
+    void InsertExitLine()
+    {
+        // Replace lines entirely with only the new one
+        lines = new string[] { "You step out of the building...Now find the boat and avoid being caught by the spotlight. Good luck!" };
+        index = 0;
+        textComponent.text = string.Empty;
+
+        disableComponents();
+
+        gameObject.SetActive(true); // Reactivate the dialogue box
+        StartCoroutine(TypeLine());
     }
-}
+
+    void InsertSpottedLine()
+    {
+        lines = new string[] { "You have been caught by the spotlight!", "Try hiding under the trees next time." };
+        index = 0;
+        textComponent.text = string.Empty;
+
+        disableComponents();
+        gameObject.SetActive(true); // Reactivate the dialogue box
+        StartCoroutine(TypeLine());
+    }
+
+    void InsertBoatLine()
+    {
+        lines = new string[] { "It looks like this boat is the only way off the island.", "It's missing a few parts though..." };
+        index = 0;
+        textComponent.text = string.Empty;
+
+        disableComponents();
+        gameObject.SetActive(true); // Reactivate the dialogue box
+        StartCoroutine(TypeLine());
+    }
+    void disableComponents()
+    {
+        foreach (Behaviour component in componentsToDisable)
+        {
+            component.enabled = false; //disable all the components in the list
+        }
+    }
+    void enableComponents()
+    {
+        foreach (Behaviour component in componentsToDisable)
+        {
+            component.enabled = true; //enable all the components in the list
+        }
+    }
 
 }
 
