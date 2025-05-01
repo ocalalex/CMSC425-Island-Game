@@ -12,6 +12,10 @@ public class GetInBoat : MonoBehaviour
 
     public Inventory inventory;
     public GameObject gear;
+    public GameObject toolbox;
+    public GameObject fuel;
+    public GameObject engine;
+    public GameObject propeller;
     public Camera mainCamera;
     public Camera endCamera;
     public Camera mapCamera;
@@ -28,7 +32,7 @@ public class GetInBoat : MonoBehaviour
         float dist = Vector3.Distance(transform.position, player.position);
         if (dist <= clickRadius)
         {
-            if (inventory.CheckItem(gear)) {
+            if (inventory.CheckItem(gear) && inventory.CheckItem(toolbox)) {
                 sitInBoat();
                 inventory.UseItem(gear);
                 if (!isMoving) {

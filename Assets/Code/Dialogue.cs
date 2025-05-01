@@ -2,7 +2,6 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
-using System;
 
 public class Dialogue : MonoBehaviour
 {
@@ -14,8 +13,8 @@ public class Dialogue : MonoBehaviour
     public List<Behaviour> componentsToDisable = new List<Behaviour>(); //list of components to disable when the dialogue starts
     private bool hasExitedBuilding = false; //see if user has exited building
     public bool isSpotted = false;
-   
-   
+
+
     void Start()
     {
         textComponent.text = string.Empty;
@@ -26,114 +25,121 @@ public class Dialogue : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0)) {
-            if (textComponent.text == lines[index]) {
+        if (Input.GetMouseButtonDown(0))
+        {
+            if (textComponent.text == lines[index])
+            {
                 NextLine();
-            } else {
+            }
+            else
+            {
                 StopAllCoroutines();
                 textComponent.text = lines[index];
             }
         }
     }
 
-    void StartDialogue() {
+    void StartDialogue()
+    {
         index = 0;
         StartCoroutine(TypeLine());
     }
 
-    IEnumerator TypeLine() {
-        foreach (char c in lines[index].ToCharArray()) {
+    IEnumerator TypeLine()
+    {
+        foreach (char c in lines[index].ToCharArray())
+        {
             textComponent.text += c;
             yield return new WaitForSeconds(textSpeed);
         }
     }
 
-    void NextLine() {
-        if (index < lines.Length - 1) {
+    void NextLine()
+    {
+        if (index < lines.Length - 1)
+        {
             index++;
             textComponent.text = string.Empty;
             StartCoroutine(TypeLine());
-        } else {
+        }
+        else
+        {
             enableComponents();
             gameObject.SetActive(false);
         }
     }
 
     public void TriggerExitLine()
-{
-    if (!hasExitedBuilding)
     {
-        hasExitedBuilding = true;
-        InsertExitLine();
+        if (!hasExitedBuilding)
+        {
+            hasExitedBuilding = true;
+            InsertExitLine();
+        }
     }
-}
 
     public void TriggerSpottedLine()
-{
-    if (!isSpotted)
     {
-        hasExitedBuilding = true;
-        InsertSpottedLine();
+        if (!isSpotted)
+        {
+            hasExitedBuilding = true;
+            InsertSpottedLine();
+        }
     }
-}
 
-void InsertExitLine()
-{
-    // Replace lines entirely with only the new one
-    lines = new string[] { "You step out of the building...Now find the boat and avoid being caught by the spotlight. Good luck!" };
-    index = 0;
-    textComponent.text = string.Empty;
-
-    disableComponents();
-
-    gameObject.SetActive(true); // Reactivate the dialogue box
-    StartCoroutine(TypeLine());
-}
-
-void InsertSpottedLine()
-{
-    lines = new string[] {"You have been caught by the spotlight!", "Try hiding under the trees next time."};
-    index = 0;
-    textComponent.text = string.Empty;
-
-    disableComponents();
-    gameObject.SetActive(true); // Reactivate the dialogue box
-    StartCoroutine(TypeLine());
-}
-
-public void InsertPickupGunLine()
-{
-    lines = new string[] {"You picked up a gun!", "Press 'E' to equip it.", "It may come in handy later."};
-    index = 0;
-    textComponent.text = string.Empty;
-
-    disableComponents();
-    gameObject.SetActive(true);
-    StartCoroutine(TypeLine());
-}
-
-public void InsertPickupMapLine()
-{
-    lines = new string[] {"You found a map!", "Press 'M' to see the entire island."};
-    index = 0;
-    textComponent.text = string.Empty;
-
-    disableComponents();
-    gameObject.SetActive(true);
-    StartCoroutine(TypeLine());
-}
-void disableComponents()
-{
-    foreach (Behaviour component in componentsToDisable) {
-        component.enabled = false; //disable all the components in the list
+    public void TriggerBoatLine() 
+    {
+        InsertBoatLine();
     }
-}
-void enableComponents()
-{
-    foreach (Behaviour component in componentsToDisable) {
-        component.enabled = true; //enable all the components in the list
+
+    void InsertExitLine()
+    {
+        // Replace lines entirely with only the new one
+        lines = new string[] { "You step out of the building...Now find the boat and avoid being caught by the spotlight. Good luck!" };
+        index = 0;
+        textComponent.text = string.Empty;
+
+        disableComponents();
+
+        gameObject.SetActive(true); // Reactivate the dialogue box
+        StartCoroutine(TypeLine());
     }
-}
+
+    void InsertSpottedLine()
+    {
+        lines = new string[] { "You have been caught by the spotlight!", "Try hiding under the trees next time." };
+        index = 0;
+        textComponent.text = string.Empty;
+
+        disableComponents();
+        gameObject.SetActive(true); // Reactivate the dialogue box
+        StartCoroutine(TypeLine());
+    }
+
+    void InsertBoatLine()
+    {
+        lines = new string[] { "It looks like this boat is the only way off the island.", "It's missing a few parts though..." };
+        index = 0;
+        textComponent.text = string.Empty;
+
+        disableComponents();
+        gameObject.SetActive(true); // Reactivate the dialogue box
+        StartCoroutine(TypeLine());
+    }
+    void disableComponents()
+    {
+        foreach (Behaviour component in componentsToDisable)
+        {
+            component.enabled = false; //disable all the components in the list
+        }
+    }
+    void enableComponents()
+    {
+        foreach (Behaviour component in componentsToDisable)
+        {
+            component.enabled = true; //enable all the components in the list
+        }
+    }
 
 }
 
