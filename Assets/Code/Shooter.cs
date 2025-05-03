@@ -29,6 +29,10 @@ public class Shooter : MonoBehaviour
     public GameObject user;
     public Camera userCamera;
 
+    [Header("Audio Settings")]
+    public AudioClip shootSound;
+    AudioSource audioSource;
+
     Equipper equipper;
 
     Boolean canShoot;
@@ -41,6 +45,13 @@ public class Shooter : MonoBehaviour
         if (equipper == null)
         {
             Debug.LogError("Equipper component not found on the shooter object.");
+        }
+        audioSource = GetComponent<AudioSource>();
+        if (audioSource == null)
+        {
+            Debug.LogError("AudioSource component not found on the shooter object.");
+        }else{
+            audioSource.playOnAwake = false;
         }
 
     }
@@ -74,6 +85,12 @@ public class Shooter : MonoBehaviour
         if(userCamera == null){
             Debug.LogError("Player camera not assigned.");
             return;
+        }
+
+        //play shoot sound
+        if (audioSource != null)
+        {
+            audioSource.PlayOneShot(shootSound);
         }
 
         //apply recoil to gun
