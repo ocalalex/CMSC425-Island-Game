@@ -92,11 +92,4 @@ public class TreeSpawner : MonoBehaviour
             Debug.LogWarning("Max attempts reached. Some trees may not be spawned.");
         }
     }
-    public void respawnTrees(){
-        //destroys all trees in the treeContainer parent
-        foreach(Transform child in treeContainer){
-            Destroy(child.gameObject);
-        }
-        spawnTrees();
-    }
 }
