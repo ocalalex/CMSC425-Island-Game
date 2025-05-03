@@ -4078,6 +4078,7 @@ GameObject:
   - component: {fileID: 333749295}
   - component: {fileID: 333749297}
   - component: {fileID: 333749298}
+  - component: {fileID: 333749299}
   m_Layer: 0
   m_Name: Controller
   m_TagString: Untagged
@@ -4190,6 +4191,19 @@ MonoBehaviour:
   treeManager: {fileID: 185524301}
   user: {fileID: 2080557013}
   spotlight: {fileID: 2052571666}
+--- !u!114 &333749299
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 333749293}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1790ce8abd97754485ac1147ff7fe8b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  masterMixer: {fileID: 24100000, guid: 2b8f4b38a50379747bb338ba83c86a96, type: 2}
 --- !u!1001 &340558302
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14478,6 +14492,34 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: toggleSettingsMenu
       objectReference: {fileID: 0}
+    - target: {fileID: 8953406459433545946, guid: 8be1ccc65c95f7a478a92b9b9f0528df, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8953406459433545946, guid: 8be1ccc65c95f7a478a92b9b9f0528df, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8953406459433545946, guid: 8be1ccc65c95f7a478a92b9b9f0528df, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 333749299}
+    - target: {fileID: 8953406459433545946, guid: 8be1ccc65c95f7a478a92b9b9f0528df, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8953406459433545946, guid: 8be1ccc65c95f7a478a92b9b9f0528df, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: updateMasterVolume
+      objectReference: {fileID: 0}
+    - target: {fileID: 8953406459433545946, guid: 8be1ccc65c95f7a478a92b9b9f0528df, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: MasterVolumeControl, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8953406459433545946, guid: 8be1ccc65c95f7a478a92b9b9f0528df, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 9139677259178097825, guid: 8be1ccc65c95f7a478a92b9b9f0528df, type: 3}
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.size
       value: 1
@@ -15682,7 +15724,7 @@ AudioSource:
   m_GameObject: {fileID: 1186755201}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: 2b8f4b38a50379747bb338ba83c86a96, type: 2}
   m_audioClip: {fileID: 8300000, guid: e4ca7b3dcd260f14d8df2ecebe960796, type: 3}
   m_Resource: {fileID: 8300000, guid: e4ca7b3dcd260f14d8df2ecebe960796, type: 3}
   m_PlayOnAwake: 1
