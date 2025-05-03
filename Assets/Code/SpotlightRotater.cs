@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Rotator : MonoBehaviour
+public class SpotlightRotater : MonoBehaviour
 {
     public float rotationPeriod = 5.0f;
 
@@ -14,11 +14,5 @@ public class Rotator : MonoBehaviour
     void Update()
     {
         transform.RotateAround(transform.position, Vector3.up, rotationSpeed * Time.deltaTime);
-    }
-
-    public void ChangeRotationPeriod(float newRotationPeriod)
-    {
-        rotationPeriod = newRotationPeriod;
-        rotationSpeed = 360.0f / rotationPeriod;
     }
 }
