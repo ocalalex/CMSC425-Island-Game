@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using NUnit.Framework.Internal;
 using UnityEngine;
 
 public class Toggler : MonoBehaviour
@@ -6,6 +7,8 @@ public class Toggler : MonoBehaviour
     public List<Behaviour> actionsToToggle;
     public List<GameObject> objectsToToggle;
     public bool status = false;
+    List<bool> previousActionsState;
+    List<bool> previousObjectsState;
 
     void Start()
     {
@@ -20,6 +23,8 @@ public class Toggler : MonoBehaviour
             objectsToToggle = new List<GameObject>();
         }
 
+        backupStates(); //backup the states of the actions and objects
+
         //sets the intial status of the actions and objects to the status variable
         foreach (Behaviour action in actionsToToggle)
         {
@@ -29,6 +34,33 @@ public class Toggler : MonoBehaviour
         {
             obj.SetActive(status);
         }
+    }
+
+    public void smartToggle(){
+        status = !status;
+        Debug.Log("Smart toggling actions and objects. New status: " + status);
+        if(!status){
+
+            backupStates(); //backup the states of the actions and objects
+            foreach (GameObject obj in objectsToToggle)
+            {
+                obj.SetActive(status);
+            }
+            foreach (Behaviour action in actionsToToggle)
+            {
+                action.enabled = status;
+            }
+        
+        }else{
+            //restores the previous state of the actions and objects when status is true
+            for(int i = 0; i < previousObjectsState.Count; i++){
+                objectsToToggle[i].SetActive(previousObjectsState[i]);
+            }
+            for(int i = 0; i < previousActionsState.Count; i++){
+                actionsToToggle[i].enabled = previousActionsState[i];
+            }
+        }
+        
     }
 
     //toggles the status of the actions and objects
@@ -45,6 +77,21 @@ public class Toggler : MonoBehaviour
             action.enabled = status;
         }
         
+    }
+
+    //restores the previous state of the actions and objects when status is true
+    void backupStates(){
+        previousActionsState = new List<bool>();
+        foreach (Behaviour action in actionsToToggle)
+        {
+            previousActionsState.Add(action.enabled);
+        }
+
+        previousObjectsState = new List<bool>();
+        foreach (GameObject obj in objectsToToggle)
+        {
+            previousObjectsState.Add(obj.activeSelf);
+        }
     }
     
 }

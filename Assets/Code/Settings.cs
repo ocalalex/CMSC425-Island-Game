@@ -38,7 +38,7 @@ public class Settings : MonoBehaviour
 
     public void ToggleSettingsMenu(){
         if(inGame){
-            gameplayToggler.toggleActions(); // Toggles the gameplay actions when the settings menu is opened or closed
+            gameplayToggler.smartToggle(); // Toggles the gameplay actions when the settings menu is opened or closed
         }
 
         if(isVisible){

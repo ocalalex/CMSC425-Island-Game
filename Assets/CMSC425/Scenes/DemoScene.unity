@@ -4397,10 +4397,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   actionsToToggle:
-  - {fileID: 2080557016}
   - {fileID: 618322107}
   objectsToToggle:
   - {fileID: 1894785191}
+  - {fileID: 2080557013}
   status: 0
 --- !u!114 &333749296
 MonoBehaviour:
@@ -4422,7 +4422,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 333749295}
         m_TargetAssemblyTypeName: Toggler, Assembly-CSharp
-        m_MethodName: toggleActions
+        m_MethodName: smartToggle
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
