@@ -4456,7 +4456,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 989e1ed0070ca4345822947495e55615, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inGame: 0
   settingsMenu: {fileID: 953265515}
+  toggleKeyCode: 27
+  enableIngameMenu: 1
+  gameplayToggler: {fileID: 0}
 --- !u!114 &333749298
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30503,7 +30507,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d553ba2248ad4267902290b56583f2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inventoryImage: {fileID: 1264917821, guid: 870f76727450d124b95787b61b8f6863, type: 3}
+  inventoryImage: {fileID: 21300000, guid: 870f76727450d124b95787b61b8f6863, type: 3}
   inventory: {fileID: 180306847}
   clickRadius: 20
   playerObject: {fileID: 2080557013}
