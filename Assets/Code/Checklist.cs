@@ -3,40 +3,25 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Controls;
+using UnityEngine.UI;
 
 public class Checklist : MonoBehaviour
 {
-    public List<Behaviour> componentsToDisable = new List<Behaviour>(); //list of components to disable when the checklist is open
-    bool checklistEnbled;
-    public Key checklistKey = Key.Q;
+    public Image[] checkboxes;
+    public Sprite check;
 
     void Start()
     {
         gameObject.SetActive(false);
-        checklistEnbled = true;
     }
 
-    void Update()
-    {
-        Debug.Log("checklistKey");
-        if (Keyboard.current[checklistKey].wasReleasedThisFrame) {
-            Debug.Log("a");
-            gameObject.SetActive(true);
-        }
-    }
-
-    void disableComponents()
-    {
-        foreach (Behaviour component in componentsToDisable)
-        {
-            component.enabled = false; //disable all the components in the list
-        }
-    }
-    void enableComponents()
-    {
-        foreach (Behaviour component in componentsToDisable)
-        {
-            component.enabled = true; //enable all the components in the list
-        }
+    // Checks off the item based on the given index
+    // 0: toolbox
+    // 1: fuel
+    // 2: engine
+    // 3: propeller
+    // 4: gear
+    public void checkItem(int num) {
+        checkboxes[num].sprite = check;
     }
 }

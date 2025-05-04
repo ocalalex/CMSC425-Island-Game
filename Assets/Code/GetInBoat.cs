@@ -19,35 +19,49 @@ public class GetInBoat : MonoBehaviour
     public Camera mainCamera;
     public Camera endCamera;
     public Camera mapCamera;
+    public ChecklistController checklistController;
     void Start()
     {
         mainCamera.enabled = true;
         endCamera.enabled = false;
         mapCamera.enabled = false;
     }
-    void OnMouseDown() 
+
+    void OnMouseDown()
     {
+        checklistController.foundBoat = true;
         Transform player = playerObject.transform;
 
         float dist = Vector3.Distance(transform.position, player.position);
         if (dist <= clickRadius)
         {
-            if (inventory.CheckItem(gear) && inventory.CheckItem(toolbox)) {
+            if (inventory.CheckItem(gear) && inventory.CheckItem(toolbox) && inventory.CheckItem(fuel) && inventory.CheckItem(engine) && inventory.CheckItem(propeller))
+            {
                 sitInBoat();
                 inventory.UseItem(gear);
-                if (!isMoving) {
+                inventory.UseItem(toolbox);
+                inventory.UseItem(fuel);
+                inventory.UseItem(engine);
+                inventory.UseItem(propeller);
+                if (!isMoving)
+                {
                     StartCoroutine(MoveBoat(5f, 20f));
                 }
-            } else {
+            }
+            else
+            {
                 Debug.Log("No gear");
             }
         }
     }
-    private IEnumerator MoveBoat(float duration, float secDuration) {
+    private IEnumerator MoveBoat(float duration, float secDuration)
+    {
         isMoving = true;
         float startTime = Time.time;
-        while (Time.time < startTime + secDuration) {
-            if (Time.time > startTime + duration) {
+        while (Time.time < startTime + secDuration)
+        {
+            if (Time.time > startTime + duration)
+            {
                 mainCamera.enabled = false;
                 endCamera.enabled = true;
             }
@@ -57,7 +71,8 @@ public class GetInBoat : MonoBehaviour
         isMoving = false;
     }
 
-    void sitInBoat() {
+    void sitInBoat()
+    {
         Transform player = playerObject.transform;
 
         player.parent = transform;
@@ -68,6 +83,6 @@ public class GetInBoat : MonoBehaviour
         player.localPosition = new Vector3(0, 0.2f, 0);
 
         playerObject.GetComponent<Mover>().enabled = false;
-        
+
     }
 }

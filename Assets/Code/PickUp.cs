@@ -11,6 +11,7 @@ public class PickUp : MonoBehaviour
     public GameObject playerObject;
 
     public UnityEvent dialogueEvent;
+    public ChecklistController checklistController;
 
 
     private int objectsLayer;
@@ -37,6 +38,7 @@ public class PickUp : MonoBehaviour
                 if (hit.transform == transform) {
                     inventory.AddItem(gameObject);
                     dialogueEvent?.Invoke();
+                    checklistController.CheckItem(gameObject);
                 }
             }
         }
