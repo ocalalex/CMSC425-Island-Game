@@ -18,7 +18,7 @@ public class Dialogue : MonoBehaviour
     void Start()
     {
         textComponent.text = string.Empty;
-        disableComponents();
+        
     }
 
     // Update is called once per frame
@@ -40,6 +40,7 @@ public class Dialogue : MonoBehaviour
 
     public void StartDialogue()
     {
+        disableComponents();
         index = 0;
         textComponent.text = string.Empty;
         StartCoroutine(TypeLine());
