@@ -30,12 +30,16 @@ public class Settings : MonoBehaviour
 
     public void Update()
     {
-        if(enableIngameMenu){
-            HotKeyToggleSettingsMenu();
+        if(inGame && Input.GetKeyDown(toggleKeyCode)){
+            ToggleSettingsMenu();
         }
     }
 
     public void ToggleSettingsMenu(){
+        if(inGame){
+            gameplayToggler.toggleActions(); // Toggles the gameplay actions when the settings menu is opened or closed
+        }
+
         if(isVisible){
             Cursor.lockState = previousCursorState; // Restores the previous cursor state
             Cursor.visible = previousCursorVisibility; // Restores the previous cursor visibility state
@@ -53,11 +57,5 @@ public class Settings : MonoBehaviour
 
     public void updateGameStatus(bool status){
         inGame = status;
-    }
-    public void HotKeyToggleSettingsMenu(){
-        if(inGame && Input.GetKeyDown(toggleKeyCode)){
-            ToggleSettingsMenu();
-            gameplayToggler.toggleActions();
-        }
     }
 }

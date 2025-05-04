@@ -4360,6 +4360,7 @@ GameObject:
   - component: {fileID: 333749297}
   - component: {fileID: 333749298}
   - component: {fileID: 333749299}
+  - component: {fileID: 333749300}
   m_Layer: 0
   m_Name: Controller
   m_TagString: Untagged
@@ -4379,7 +4380,8 @@ Transform:
   m_LocalPosition: {x: 150.1, y: 150, z: -134.8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 2040130718}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &333749295
@@ -4443,6 +4445,30 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 333749297}
+        m_TargetAssemblyTypeName: Settings, Assembly-CSharp
+        m_MethodName: updateGameStatus
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 333749300}
+        m_TargetAssemblyTypeName: CursorController, Assembly-CSharp
+        m_MethodName: gameStart
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
   skipMenu: 0
 --- !u!114 &333749297
 MonoBehaviour:
@@ -4460,7 +4486,7 @@ MonoBehaviour:
   settingsMenu: {fileID: 953265515}
   toggleKeyCode: 27
   enableIngameMenu: 1
-  gameplayToggler: {fileID: 0}
+  gameplayToggler: {fileID: 2040130719}
 --- !u!114 &333749298
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4489,6 +4515,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   masterMixer: {fileID: 24100000, guid: 2b8f4b38a50379747bb338ba83c86a96, type: 2}
+--- !u!114 &333749300
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 333749293}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2d2d8d8877edb94dae45f219f07283a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!43 &338102356
 Mesh:
   m_ObjectHideFlags: 0
@@ -9597,7 +9635,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6629784010995127495, guid: 4644350956c69fe4192486aea8088391, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: toggleSettingsMenu
+      value: ToggleSettingsMenu
       objectReference: {fileID: 0}
     - target: {fileID: 6629784010995127495, guid: 4644350956c69fe4192486aea8088391, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
@@ -15176,7 +15214,7 @@ PrefabInstance:
       objectReference: {fileID: 333749297}
     - target: {fileID: 5706553099275057469, guid: 8be1ccc65c95f7a478a92b9b9f0528df, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: toggleSettingsMenu
+      value: ToggleSettingsMenu
       objectReference: {fileID: 0}
     - target: {fileID: 5809455903848595233, guid: 8be1ccc65c95f7a478a92b9b9f0528df, type: 3}
       propertyPath: m_Name
@@ -15320,7 +15358,7 @@ PrefabInstance:
       objectReference: {fileID: 333749297}
     - target: {fileID: 8714399452150885910, guid: 8be1ccc65c95f7a478a92b9b9f0528df, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: toggleSettingsMenu
+      value: ToggleSettingsMenu
       objectReference: {fileID: 0}
     - target: {fileID: 8953406459433545946, guid: 8be1ccc65c95f7a478a92b9b9f0528df, type: 3}
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.size
@@ -30233,6 +30271,61 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2037669801}
   m_CullTransparentMesh: 1
+--- !u!1 &2040130717
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2040130718}
+  - component: {fileID: 2040130719}
+  m_Layer: 0
+  m_Name: IngameMenuToggler
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &2040130718
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2040130717}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 333749294}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &2040130719
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2040130717}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17cd3fa6cd878e14693821d5062dbfe7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  actionsToToggle:
+  - {fileID: 2052571671}
+  - {fileID: 2080557016}
+  - {fileID: 935027262}
+  objectsToToggle:
+  - {fileID: 1894785191}
+  status: 1
 --- !u!1001 &2047755739
 PrefabInstance:
   m_ObjectHideFlags: 0
