@@ -29,6 +29,10 @@ public class Shooter : MonoBehaviour
     public GameObject user;
     public Camera userCamera;
 
+    [Header("Audio Settings")]
+    public AudioClip shootSound;
+    AudioSource audioSource;
+
     Equipper equipper;
 
     Boolean canShoot;
@@ -41,6 +45,13 @@ public class Shooter : MonoBehaviour
         if (equipper == null)
         {
             Debug.LogError("Equipper component not found on the shooter object.");
+        }
+        audioSource = GetComponent<AudioSource>();
+        if (audioSource == null)
+        {
+            Debug.LogError("AudioSource component not found on the shooter object.");
+        }else{
+            audioSource.playOnAwake = false;
         }
 
     }
@@ -74,6 +85,12 @@ public class Shooter : MonoBehaviour
         if(userCamera == null){
             Debug.LogError("Player camera not assigned.");
             return;
+        }
+
+        //play shoot sound
+        if (audioSource != null)
+        {
+            audioSource.PlayOneShot(shootSound);
         }
 
         //apply recoil to gun
@@ -115,16 +132,21 @@ public class Shooter : MonoBehaviour
         flash.transform.parent = muzzleFlashPoint;
         Destroy(flash, muzzleFlashDuration);
     }
+
+    // applys cooldown between sohts
     IEnumerator ShootCooldown(){
         canShoot = false;
         yield return new WaitForSeconds(shotDuration);
         canShoot = true;
     }
 
+    // applys recoil to gun
     IEnumerator Recoil(){
         Quaternion originalRotation = transform.localRotation;
         Quaternion targetRotation = originalRotation * Quaternion.Euler(recoilRotation);
         float elapsedTime = 0f;
+
+        // First half of the recoil (kickback)
         while (elapsedTime < recoilDuration/2)
         {
             float progress = elapsedTime / recoilDuration;
@@ -132,6 +154,8 @@ public class Shooter : MonoBehaviour
             elapsedTime += Time.deltaTime;
             yield return null;
         }
+
+        // Second half of the recoil (return to original position)
         while (elapsedTime < recoilDuration){
             float progress = elapsedTime / recoilDuration;
             elapsedTime += Time.deltaTime;

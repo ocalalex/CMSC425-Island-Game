@@ -18,8 +18,7 @@ public class Dialogue : MonoBehaviour
     void Start()
     {
         textComponent.text = string.Empty;
-        disableComponents();
-        StartDialogue();
+        
     }
 
     // Update is called once per frame
@@ -39,14 +38,17 @@ public class Dialogue : MonoBehaviour
         }
     }
 
-    void StartDialogue()
+    public void StartDialogue()
     {
+        disableComponents();
         index = 0;
+        textComponent.text = string.Empty;
         StartCoroutine(TypeLine());
     }
 
     IEnumerator TypeLine()
     {
+        yield return null;
         foreach (char c in lines[index].ToCharArray())
         {
             textComponent.text += c;
@@ -78,6 +80,7 @@ public class Dialogue : MonoBehaviour
         }
     }
 
+    //called when player is first spotted by the spotlight
     public void TriggerSpottedLine()
     {
         if (!isSpotted)
@@ -126,6 +129,32 @@ public class Dialogue : MonoBehaviour
         gameObject.SetActive(true); // Reactivate the dialogue box
         StartCoroutine(TypeLine());
     }
+
+    // called when player intially picks up a gun
+    public void InsertPickupGunLine()
+    {
+        lines = new string[] {"You picked up a gun!", "Press 'E' to equip it.", "It may come in handy later."};
+        index = 0;
+        textComponent.text = string.Empty;
+
+        disableComponents();
+        gameObject.SetActive(true);
+        StartCoroutine(TypeLine());
+    }
+
+    // called when player intiially picks up a map
+    public void InsertPickupMapLine()
+    {
+        lines = new string[] {"You found a map!", "Press 'M' to see the entire island."};
+        index = 0;
+        textComponent.text = string.Empty;
+
+        disableComponents();
+        gameObject.SetActive(true);
+        StartCoroutine(TypeLine());
+    }
+
+    //disables all the components in the list when the dialogue starts
     void disableComponents()
     {
         foreach (Behaviour component in componentsToDisable)
@@ -133,6 +162,8 @@ public class Dialogue : MonoBehaviour
             component.enabled = false; //disable all the components in the list
         }
     }
+
+    //enables all the components in the list when the dialogue ends
     void enableComponents()
     {
         foreach (Behaviour component in componentsToDisable)
