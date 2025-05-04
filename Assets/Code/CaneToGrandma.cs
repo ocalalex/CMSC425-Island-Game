@@ -3,38 +3,51 @@ using UnityEngine;
 public class CaneToGrandma : MonoBehaviour
 {
     public Inventory inventory;
-    public GameObject cane; //the cane to be given to grandma
     public GameObject toolbox;
-    public LayerMask objectsLayer;
+    public LayerMask interactLayer; // Layer Grandma is on
+    public float clickRadius = 20f; 
 
-    public float clickRadius = 20f;
+    private Camera mainCam;
 
-    
-    void Update() {
-        if (Input.GetMouseButtonDown(0)) {
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+    void Start()
+    {
+        mainCam = Camera.main;
+
+        if (inventory == null)
+            Debug.LogWarning("Inventory not assigned to CaneToGrandma.");
+        if (toolbox == null)
+            Debug.LogWarning("Toolbox not assigned to CaneToGrandma.");
+    }
+
+    void Update()
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            Ray ray = mainCam.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
 
-            if (Physics.Raycast(ray, out hit, clickRadius, objectsLayer)) {
-            //casts a ray up to clickRadius and only detect hits with objects in the object layer
-              
-                if (hit.collider.gameObject.name == "Grandma") //if you clicked on grandma
+            if (Physics.Raycast(ray, out hit, 20f, interactLayer))
+            {
+                if (hit.collider.gameObject.name == "Grandma")
                 {
-                    Debug.Log("You clicked on Grandma");
-                       //seeing if you have to cane to give to grandma, if you do then she will give you toolbox
+                    Debug.Log("Clicked on Grandma");
 
-                    if (inventory.CheckItem(cane)) {
+                    if (inventory.CheckItem(gameObject)) // this cane
+                    {
                         Debug.Log("Grandma received the cane");
-                        inventory.UseItem(cane); //removes cane from inventory 
-                        inventory.AddItem(toolbox); //adds toolbox
-                    } else {
-                        Debug.Log("No Cane given to grandma");
+
+                        inventory.UseItem(gameObject);   // remove cane
+                        inventory.AddItem(toolbox);      // add toolbox
+
+                        // Optional: destroy cane object from scene
+                        Destroy(gameObject);
                     }
-            
+                    else
+                    {
+                        Debug.Log("Cane not in inventory");
+                    }
                 }
             }
-
-
         }
     }
 }
