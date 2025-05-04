@@ -9,6 +9,7 @@ public class TreeSpawner : MonoBehaviour
 
     public Transform treeContainer;
     public LayerMask landLayerMask; //layer in which the trees will be spawned
+    public LayerMask obstacleLayerMask; //layers which will be checked for other objects when spawning trees
 
     [Header("Spawn Area")]
     public Vector3 spawnCenter;
@@ -31,6 +32,9 @@ public class TreeSpawner : MonoBehaviour
         if(landLayerMask == 0){
             Debug.LogWarning("Land Layer Mask is not assigned in the inspector.");
         }
+        if(obstacleLayerMask == 0){
+            Debug.LogWarning("Obstacle Layer Mask is not assigned in the inspector.");
+        }
 
         spawnTrees();
     }
@@ -45,9 +49,6 @@ public class TreeSpawner : MonoBehaviour
             Vector3.left,
             Vector3.right
         };
-
-        //inverts the landLayerMask to ignore when checking for collisions with other objects
-        LayerMask layersToIgnore = ~landLayerMask;  
         
         while(attempts < maxAttempts && spawnCount < treeCount){
             float randomX = Random.Range(-spawnSize.x /2f, spawnSize.x / 2f);
@@ -74,9 +75,10 @@ public class TreeSpawner : MonoBehaviour
                 }
 
                 //checks if the spawn position is clear of other objects
-                if(isStable && !Physics.CheckSphere(spawnPosition, treeClearance, layersToIgnore)){
+                if(isStable && !Physics.CheckSphere(spawnPosition, treeClearance, obstacleLayerMask)){
                     Quaternion spawnRotation = Quaternion.Euler(0, Random.Range(0f, 360f), 0);
                     GameObject tree = Instantiate(treePrefab, spawnPosition, spawnRotation);
+                    tree.tag = "Tree"; //sets the tag of the tree object
                     spawnCount++;
 
                     //organizes tree in the treeContainer parent

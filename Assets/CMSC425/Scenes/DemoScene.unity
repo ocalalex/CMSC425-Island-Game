@@ -2720,6 +2720,9 @@ MonoBehaviour:
   landLayerMask:
     serializedVersion: 2
     m_Bits: 128
+  obstacleLayerMask:
+    serializedVersion: 2
+    m_Bits: 847
   spawnCenter: {x: -70, y: 0, z: 70}
   spawnSize: {x: 650, y: 0, z: 550}
   raycastMaxDistance: 150
@@ -20222,7 +20225,7 @@ GameObject:
   - component: {fileID: 1490078751}
   - component: {fileID: 1490078750}
   - component: {fileID: 1490078749}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: Water
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -21354,7 +21357,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1539904134}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: Ocean
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -28464,7 +28467,7 @@ GameObject:
   - component: {fileID: 1924564080}
   - component: {fileID: 1924564079}
   - component: {fileID: 1924564078}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: OceanFloor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
