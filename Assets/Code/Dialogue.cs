@@ -79,6 +79,7 @@ public class Dialogue : MonoBehaviour
         }
     }
 
+    //called when player is first spotted by the spotlight
     public void TriggerSpottedLine()
     {
         if (!isSpotted)
@@ -128,27 +129,31 @@ public class Dialogue : MonoBehaviour
         StartCoroutine(TypeLine());
     }
 
-public void InsertPickupGunLine()
-{
-    lines = new string[] {"You picked up a gun!", "Press 'E' to equip it.", "It may come in handy later."};
-    index = 0;
-    textComponent.text = string.Empty;
+    // called when player intially picks up a gun
+    public void InsertPickupGunLine()
+    {
+        lines = new string[] {"You picked up a gun!", "Press 'E' to equip it.", "It may come in handy later."};
+        index = 0;
+        textComponent.text = string.Empty;
 
-    disableComponents();
-    gameObject.SetActive(true);
-    StartCoroutine(TypeLine());
-}
+        disableComponents();
+        gameObject.SetActive(true);
+        StartCoroutine(TypeLine());
+    }
 
-public void InsertPickupMapLine()
-{
-    lines = new string[] {"You found a map!", "Press 'M' to see the entire island."};
-    index = 0;
-    textComponent.text = string.Empty;
+    // called when player intiially picks up a map
+    public void InsertPickupMapLine()
+    {
+        lines = new string[] {"You found a map!", "Press 'M' to see the entire island."};
+        index = 0;
+        textComponent.text = string.Empty;
 
-    disableComponents();
-    gameObject.SetActive(true);
-    StartCoroutine(TypeLine());
-}
+        disableComponents();
+        gameObject.SetActive(true);
+        StartCoroutine(TypeLine());
+    }
+
+    //disables all the components in the list when the dialogue starts
     void disableComponents()
     {
         foreach (Behaviour component in componentsToDisable)
@@ -156,6 +161,8 @@ public void InsertPickupMapLine()
             component.enabled = false; //disable all the components in the list
         }
     }
+
+    //enables all the components in the list when the dialogue ends
     void enableComponents()
     {
         foreach (Behaviour component in componentsToDisable)

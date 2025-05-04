@@ -42,6 +42,7 @@ public class DifficultyChanger : MonoBehaviour
         }
     }
 
+    // Adjusts the movement speed, tree count, and rotation speed of the spotlight based on the difficulty level
     public void changeDifficulty(int difficulty)
     {
         if (difficulty == 0)    //easy
@@ -63,6 +64,7 @@ public class DifficultyChanger : MonoBehaviour
             spotlightRotater.ChangeRotationPeriod(8f);
         }
         
+        //respawns trees to match the new difficulty level
         treeSpawner.respawnTrees();
     }
 }

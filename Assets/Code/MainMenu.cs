@@ -40,6 +40,7 @@ public class MainMenu : MonoBehaviour
         {
             showMainMenu();
         }
+        
     }
 
     public void showMainMenu()

@@ -9,7 +9,7 @@ public class Looker : MonoBehaviour
 
     void Start()
     {
-        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.lockState = CursorLockMode.Locked;   //prevents cursor from leaving the game window
     }
 
     // Update is called once per frame

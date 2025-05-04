@@ -13,6 +13,8 @@ public class Settings : MonoBehaviour
     [Header("In-Game Menu")]
     public bool enableIngameMenu = true;
     public Toggler gameplayToggler;
+    CursorLockMode previousCursorState = CursorLockMode.Confined;
+    bool previousCursorVisibility = false;
 
     public void Start()
     {
@@ -35,9 +37,15 @@ public class Settings : MonoBehaviour
 
     public void ToggleSettingsMenu(){
         if(isVisible){
+            Cursor.lockState = previousCursorState; // Restores the previous cursor state
+            Cursor.visible = previousCursorVisibility; // Restores the previous cursor visibility state
             settingsMenu.SetActive(false);
             isVisible = false;
         }else{
+            previousCursorState = Cursor.lockState;
+            previousCursorVisibility = Cursor.visible; // Store the previous cursor visibility state
+            Cursor.lockState = CursorLockMode.Confined; // Keeps the cursor within the game window
+            Cursor.visible = true; // Makes the cursor visible
             settingsMenu.SetActive(true);
             isVisible = true;
         }

@@ -22,7 +22,6 @@ public class SpotlightDetection : MonoBehaviour
     void Update()
     {
         
-        Vector3 forwardDir = transform.forward;
         float goldenRatio = (1 + Mathf.Sqrt(5)) / 2;
         bool actionTriggered = false;
         
@@ -35,6 +34,8 @@ public class SpotlightDetection : MonoBehaviour
 
             float t = (float)i / rayCount;
             float halfAngle = angleSpread * 0.5f * Mathf.Deg2Rad;
+
+            //establishes the spherical coordinates of the ray
             float inclination = t * halfAngle;
             float azimuth = 2 * Mathf.PI * i / goldenRatio;
             
@@ -47,39 +48,45 @@ public class SpotlightDetection : MonoBehaviour
 
             if(Physics.Raycast(transform.position, rayDir, out RaycastHit hit, maxDistance)){
                     
-                    if(debugRays){
-                      Debug.DrawRay(transform.position, rayDir * hit.distance, Color.blue);
-                    //   Debug.Log("Ray hit: " + hit.collider.gameObject.name);
-                    }
-
-                    if((detectionLayer & (1 << hit.collider.gameObject.layer)) != 0){
-                        Teleporter teleporter = hit.collider.GetComponent<Teleporter>();
-
-                        if(!actionTriggered && teleporter != null && dialogue != null){
-                            if(!spottedOnce){
-                                spottedOnce = true;
-                                dialogue.TriggerSpottedLine();
-                            }
-                            actionTriggered = true;
-                            teleporter.Teleport();
-                            if(!spottedOnce){
-                                dialogue.isSpotted = false;
-                            }
-                            
-
-                        }
-
-                        // Debug.Log("Spotlight detected: " + hit.collider.gameObject.name);
-                        if (debugRays)
-                        {
-                            Debug.DrawRay(transform.position, rayDir * hit.distance, Color.green);
-                        }
-
-                    }
-
-                }else if (debugRays){
-                    Debug.DrawRay(transform.position, rayDir * maxDistance, Color.red);
+                //draws blue ray if a hit is detected
+                if(debugRays){
+                    Debug.DrawRay(transform.position, rayDir * hit.distance, Color.blue);
                 }
+
+                // Check if the hit object is in the detection layer
+                if((detectionLayer & (1 << hit.collider.gameObject.layer)) != 0){
+                    Teleporter teleporter = hit.collider.GetComponent<Teleporter>();
+
+                    // Checks if hit object has teleporter and dialogue component
+                    //Also checks if prior rays of the same update() have already triggered the action
+                    if(!actionTriggered && teleporter != null && dialogue != null){
+
+                        //teleports and starts dialoging if the object is not already spotted
+                        if(!spottedOnce){
+                            spottedOnce = true;
+                            dialogue.TriggerSpottedLine();  
+                        }
+                        actionTriggered = true;
+                        teleporter.Teleport();
+                        if(!spottedOnce){
+                            dialogue.isSpotted = false;
+                        }
+                        
+
+                    }
+
+                    //draws green ray if object his is in detection layer
+                    if (debugRays)
+                    {
+                        Debug.DrawRay(transform.position, rayDir * hit.distance, Color.green);
+                    }
+
+                }
+
+            //draws red ray if no collision is detected
+            }else if (debugRays){
+                Debug.DrawRay(transform.position, rayDir * maxDistance, Color.red);
+            }
         }
     }
 }

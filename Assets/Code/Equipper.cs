@@ -26,6 +26,7 @@ public class Equipper : MonoBehaviour
     void Update()
     {
 
+        // Only equips if item is in inventory and equip key is released
         if(inventory.CheckItem(item) && equipKey.wasReleasedThisFrame)
         {
             Debug.Log("Equipping item: " + item.name);
@@ -45,6 +46,8 @@ public class Equipper : MonoBehaviour
         item.SetActive(true);
         item.GetComponent<BoxCollider>().enabled = false;
         equipped = true;
+
+        // Ensures the item is properly rotated when equipped in the hand
         item.transform.SetParent(hand.transform, false);
         item.transform.localPosition = Vector3.zero;
         item.transform.localRotation = Quaternion.Euler(rotationOffset);
@@ -59,6 +62,7 @@ public class Equipper : MonoBehaviour
         
     }
 
+    // Getter for equipped variable
     public Boolean isEquipped()
     {
         return equipped;
