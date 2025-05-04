@@ -897,7 +897,7 @@ Camera:
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 1023
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -2883,9 +2883,9 @@ GameObject:
   - component: {fileID: 241536351}
   - component: {fileID: 241536350}
   - component: {fileID: 241536349}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: ParkourMarkerText
-  m_TagString: Untagged
+  m_TagString: MapElement
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11025,9 +11025,9 @@ GameObject:
   - component: {fileID: 862145274}
   - component: {fileID: 862145273}
   - component: {fileID: 862145272}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Key
-  m_TagString: Untagged
+  m_TagString: MapElement
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13405,9 +13405,9 @@ GameObject:
   - component: {fileID: 995622884}
   - component: {fileID: 995622883}
   - component: {fileID: 995622882}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: SpawnKey
-  m_TagString: Untagged
+  m_TagString: MapElement
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -18623,9 +18623,9 @@ GameObject:
   - component: {fileID: 1388817058}
   - component: {fileID: 1388817057}
   - component: {fileID: 1388817056}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: LightMarkerText
-  m_TagString: Untagged
+  m_TagString: MapElement
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -19957,9 +19957,9 @@ GameObject:
   - component: {fileID: 1476636869}
   - component: {fileID: 1476636868}
   - component: {fileID: 1476636867}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: ParkourKey
-  m_TagString: Untagged
+  m_TagString: MapElement
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -20823,9 +20823,9 @@ GameObject:
   - component: {fileID: 1523667807}
   - component: {fileID: 1523667806}
   - component: {fileID: 1523667805}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: MapMarkerText
-  m_TagString: Untagged
+  m_TagString: MapElement
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -21415,9 +21415,9 @@ GameObject:
   - component: {fileID: 1546648671}
   - component: {fileID: 1546648670}
   - component: {fileID: 1546648669}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: 'GrannyMarkerText '
-  m_TagString: Untagged
+  m_TagString: MapElement
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -22425,9 +22425,9 @@ GameObject:
   - component: {fileID: 1618482159}
   - component: {fileID: 1618482158}
   - component: {fileID: 1618482157}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: BoatKey
-  m_TagString: Untagged
+  m_TagString: MapElement
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -24305,9 +24305,9 @@ GameObject:
   - component: {fileID: 1751317045}
   - component: {fileID: 1751317044}
   - component: {fileID: 1751317043}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: GrannyKey
-  m_TagString: Untagged
+  m_TagString: MapElement
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -27521,9 +27521,9 @@ GameObject:
   - component: {fileID: 1896146592}
   - component: {fileID: 1896146591}
   - component: {fileID: 1896146590}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: SpawnMarkerText
-  m_TagString: Untagged
+  m_TagString: MapElement
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -27919,9 +27919,9 @@ GameObject:
   - component: {fileID: 1906920920}
   - component: {fileID: 1906920919}
   - component: {fileID: 1906920918}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: LightKey
-  m_TagString: Untagged
+  m_TagString: MapElement
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -29257,9 +29257,9 @@ GameObject:
   - component: {fileID: 2013021752}
   - component: {fileID: 2013021751}
   - component: {fileID: 2013021750}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: BoatMarkerText
-  m_TagString: Untagged
+  m_TagString: MapElement
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -31746,6 +31746,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Maze
       objectReference: {fileID: 0}
+    - target: {fileID: 6042551140147499052, guid: 20e377b641e508a46991a72e44ff0307, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 8166377287454772743, guid: 20e377b641e508a46991a72e44ff0307, type: 3}
       propertyPath: m_LocalPosition.x
       value: -27.915585
@@ -31785,6 +31789,10 @@ PrefabInstance:
     - target: {fileID: 8166377287454772743, guid: 20e377b641e508a46991a72e44ff0307, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8724720726677471352, guid: 20e377b641e508a46991a72e44ff0307, type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
