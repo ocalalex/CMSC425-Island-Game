@@ -16,6 +16,7 @@ public class Rotator : MonoBehaviour
         transform.RotateAround(transform.position, Vector3.up, rotationSpeed * Time.deltaTime);
     }
 
+   // Allows the rotation period of the object to be changed at runtime
     public void ChangeRotationPeriod(float newRotationPeriod)
     {
         rotationPeriod = newRotationPeriod;

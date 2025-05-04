@@ -132,16 +132,21 @@ public class Shooter : MonoBehaviour
         flash.transform.parent = muzzleFlashPoint;
         Destroy(flash, muzzleFlashDuration);
     }
+
+    // applys cooldown between sohts
     IEnumerator ShootCooldown(){
         canShoot = false;
         yield return new WaitForSeconds(shotDuration);
         canShoot = true;
     }
 
+    // applys recoil to gun
     IEnumerator Recoil(){
         Quaternion originalRotation = transform.localRotation;
         Quaternion targetRotation = originalRotation * Quaternion.Euler(recoilRotation);
         float elapsedTime = 0f;
+
+        // First half of the recoil (kickback)
         while (elapsedTime < recoilDuration/2)
         {
             float progress = elapsedTime / recoilDuration;
@@ -149,6 +154,8 @@ public class Shooter : MonoBehaviour
             elapsedTime += Time.deltaTime;
             yield return null;
         }
+
+        // Second half of the recoil (return to original position)
         while (elapsedTime < recoilDuration){
             float progress = elapsedTime / recoilDuration;
             elapsedTime += Time.deltaTime;

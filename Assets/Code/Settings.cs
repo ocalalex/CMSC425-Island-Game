@@ -30,7 +30,8 @@ public class Settings : MonoBehaviour
 
     public void Update()
     {
-        if(inGame && Input.GetKeyDown(toggleKeyCode)){
+        // Checks if the settings menu key is pressed when the game is running
+        if(enableIngameMenu && inGame && Input.GetKeyDown(toggleKeyCode)){
             ToggleSettingsMenu();
         }
     }

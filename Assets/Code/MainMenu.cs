@@ -1,6 +1,5 @@
 using UnityEngine;
 using UnityEngine.Events;
-using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
@@ -43,6 +42,7 @@ public class MainMenu : MonoBehaviour
         
     }
 
+
     public void showMainMenu()
     {
         if (gameCamera == null)
@@ -58,6 +58,8 @@ public class MainMenu : MonoBehaviour
             Debug.LogError("Main Menu UI is not assigned in the inspector.");
         }
         mainMenuUI.SetActive(true);
+
+        //sets the proper camera and audio listener to be active
         startCamera.enabled = true;
         gameCamera.enabled = false;
         startListener.enabled = true;
@@ -65,10 +67,14 @@ public class MainMenu : MonoBehaviour
     }
 
     public void playGame(){
+
+        //sets the proper camera and audio listener to be active
         startCamera.enabled = false;
         gameCamera.enabled = true;
         startListener.enabled = false;
         gameListener.enabled = true;
+
+        //invokes the play event and disables the main menu UI
         playEvent.Invoke();
         mainMenuUI.SetActive(false);
     }

@@ -27765,6 +27765,7 @@ MonoBehaviour:
   - {fileID: 549928978}
   - {fileID: 2080557016}
   - {fileID: 935027262}
+  - {fileID: 2052571671}
   isSpotted: 0
 --- !u!1 &1895829056
 GameObject:
@@ -31467,11 +31468,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inventory: {fileID: 180306847}
-  cane: {fileID: 560113944}
   toolbox: {fileID: 41394587}
-  objectsLayer:
+  interactLayer:
     serializedVersion: 2
-    m_Bits: 1
+    m_Bits: 0
   clickRadius: 20
 --- !u!1 &2081468780 stripped
 GameObject:

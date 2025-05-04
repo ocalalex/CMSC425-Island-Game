@@ -19,6 +19,8 @@ public class Toggler : MonoBehaviour
             Debug.LogWarning("No objects to toggle assigned in the inspector.");
             objectsToToggle = new List<GameObject>();
         }
+
+        //sets the intial status of the actions and objects to the status variable
         foreach (Behaviour action in actionsToToggle)
         {
             action.enabled = status;
@@ -29,6 +31,7 @@ public class Toggler : MonoBehaviour
         }
     }
 
+    //toggles the status of the actions and objects
     public void toggleActions()
     {
         status = !status;

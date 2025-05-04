@@ -51,6 +51,8 @@ public class TreeSpawner : MonoBehaviour
         };
         
         while(attempts < maxAttempts && spawnCount < treeCount){
+
+            //generates a random position within the spawn area
             float randomX = Random.Range(-spawnSize.x /2f, spawnSize.x / 2f);
             float randomZ = Random.Range(-spawnSize.z /2f, spawnSize.z / 2f);
 
