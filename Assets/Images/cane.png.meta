@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: a2d9c3a57b83a4b7da3406f0a772cc9d
+guid: d768c4b5570984b44a49179d46da5c93
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -97,13 +97,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: aid-cane_0
+      name: cane_0
       rect:
         serializedVersion: 2
-        x: 1
+        x: 3
         y: 0
-        width: 63
-        height: 63
+        width: 257
+        height: 248
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -112,8 +112,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4c89558dd3e2b4dfd9923c5a0ac9e662
-      internalID: 718021544
+      spriteID: 5d746bb8573284d2a875160b53233d8e
+      internalID: -2129802765
       vertices: []
       indices: 
       edges: []
@@ -122,7 +122,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 277583d1fb95e4c9e867cb9663eb4bf9
+    spriteID: e87b298fafec34d0b8988bab3a99e57c
     internalID: 0
     vertices: []
     indices: 
@@ -132,7 +132,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      aid-cane_0: 718021544
+      cane_0: -2129802765
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
