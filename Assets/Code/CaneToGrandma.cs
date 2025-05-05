@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -8,8 +9,15 @@ public class CaneToGrandma : MonoBehaviour
     public GameObject cane;
     public float clickRadius = 20f; 
     private int objectsLayer;
+    
+    private Boolean firstTalk = true;
 
     private Camera mainCam;
+    public ChecklistController checklistController;
+
+    public UnityEvent GrandmaHelpEvent;
+
+    public UnityEvent ReturnCaneEvent;
 
     void Start()
     {
@@ -34,15 +42,18 @@ public class CaneToGrandma : MonoBehaviour
                         Debug.Log("Clicked on Grandma");
                         if (inventory.CheckItem(cane)) // see if user have cane to give to grandma
                         {
-                            Debug.Log("Grandma received the cane");
-
+                            ReturnCaneEvent?.Invoke();
                             inventory.UseItem(cane);   // remove cane
                             inventory.AddItem(toolbox);      // add toolbox
+                            checklistController.CheckItem(toolbox);
 
                         }
                         else
                         {
-                            Debug.Log("Cane not in inventory");
+                            if (firstTalk) {
+                                firstTalk = !firstTalk;
+                                GrandmaHelpEvent?.Invoke();
+                            }
                         }
                     
                     }

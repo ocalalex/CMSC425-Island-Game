@@ -73,9 +73,11 @@ public class GetInBoat : MonoBehaviour
 
     void sitInBoat()
     {
+        // stop user from restarting if they accidentally collide with water while in boat
+        Destroy(playerObject.GetComponent<FallerInWater>());
+        
         Transform player = playerObject.transform;
-
-        player.parent = transform;
+        player.parent = transform; // make player a child of boat 
 
         Rigidbody playerRB = playerObject.GetComponent<Rigidbody>();
         playerRB.isKinematic = true;

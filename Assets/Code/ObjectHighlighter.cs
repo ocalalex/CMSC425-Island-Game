@@ -23,7 +23,9 @@ public class ObjectHighlighter : MonoBehaviour
         // Enable emission for all children renderers
         foreach (var renderer in renderers)
         {
-            renderer.material.EnableKeyword("_EMISSION");
+            foreach (Material material in renderer.materials) {
+                material.EnableKeyword("_EMISSION");
+            }
         }
     }
 
@@ -38,18 +40,24 @@ public class ObjectHighlighter : MonoBehaviour
                 if (hit.transform == transform) {
                     foreach (var renderer in renderers)
                     {
-                        renderer.material.SetColor("_EmissionColor", highlightColor*highlightIntensity);
+                        foreach (Material material in renderer.materials) {
+                            material.SetColor("_EmissionColor", highlightColor*highlightIntensity);
+                        }
                     }
                 } else {
                     foreach (var renderer in renderers)
                     {
-                        renderer.material.SetColor("_EmissionColor", Color.black);
+                        foreach (Material material in renderer.materials) {
+                            material.SetColor("_EmissionColor", Color.black);
+                        }
                     }
                 }
             } else {
                 foreach (var renderer in renderers)
                 {
-                    renderer.material.SetColor("_EmissionColor", Color.black);
+                    foreach (Material material in renderer.materials) {
+                        material.SetColor("_EmissionColor", Color.black);
+                    }
                 }
             }
         }

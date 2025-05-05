@@ -13,14 +13,22 @@ public class SpotlightDetection : MonoBehaviour
     private Light spotLight;
     private Boolean spottedOnce;
 
+    private LayerMask notLightHouse;
+    public int uncutWires = 3;
+
     void Start()
     {
         spotLight = GetComponent<Light>();
         spottedOnce = false;
+        notLightHouse = ~LayerMask.GetMask("Lighthouse");
     }
 
     void Update()
     {
+        // shuts off light if all of the wires have been cut
+        if (uncutWires == 0) {
+            Destroy(this.gameObject);
+        }
         
         float goldenRatio = (1 + Mathf.Sqrt(5)) / 2;
         bool actionTriggered = false;
@@ -46,8 +54,7 @@ public class SpotlightDetection : MonoBehaviour
             Vector3 rayDir = transform.TransformDirection(new Vector3(x, y, z));
             rayDir.Normalize();
 
-            if(Physics.Raycast(transform.position, rayDir, out RaycastHit hit, maxDistance)){
-                    
+            if(Physics.Raycast(transform.position, rayDir, out RaycastHit hit, maxDistance, notLightHouse)){ // layermask ignores the cosmetic lighthouse objects that immediately block the ray
                 //draws blue ray if a hit is detected
                 if(debugRays){
                     Debug.DrawRay(transform.position, rayDir * hit.distance, Color.blue);

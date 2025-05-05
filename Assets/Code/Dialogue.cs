@@ -154,6 +154,52 @@ public class Dialogue : MonoBehaviour
         StartCoroutine(TypeLine());
     }
 
+    // called when player first falls in water
+    public void InsertFirstFallLine()
+    {
+        lines = new string[] {"You can't swim!", "Avoid falling in the water next time."};
+        index = 0;
+        textComponent.text = string.Empty;
+
+        disableComponents();
+        gameObject.SetActive(true);
+        StartCoroutine(TypeLine());
+    }
+
+    public void InsertGrandmaHelpLine()
+    {
+        lines = new string[] {"Oh my! You surprised me!", "I seem to have lost my cane... do you mind finding it for me?", "I'm certain I left it in some nook or cranny of my house, maybe try the drawers."};
+        index = 0;
+        textComponent.text = string.Empty;
+
+        disableComponents();
+        gameObject.SetActive(true);
+        StartCoroutine(TypeLine());
+    }
+
+    public void InsertGrandmaCaneReturnLine()
+    {
+        lines = new string[] {"Thank you, this has been a real help!", "You know, somewhere around the island, I've got an old boat.", "It may be in need of repair, but if you can fix it up, it's all yours! I'm not in need of it anymore...", "Here's a toolkit for your trouble."};
+        index = 0;
+        textComponent.text = string.Empty;
+
+        disableComponents();
+        gameObject.SetActive(true);
+        StartCoroutine(TypeLine());
+    }
+
+    // called when player tries to cut wires without toolbox
+    public void InsertNoToolLine()
+    {
+        lines = new string[] {"You don't have anything to cut this wire with.", "Maybe there's a toolbox somewhere...?"};
+        index = 0;
+        textComponent.text = string.Empty;
+
+        disableComponents();
+        gameObject.SetActive(true);
+        StartCoroutine(TypeLine());
+    }
+
     //disables all the components in the list when the dialogue starts
     void disableComponents()
     {
