@@ -130,6 +130,19 @@ public class Dialogue : MonoBehaviour
         StartCoroutine(TypeLine());
     }
 
+    // called when player tries to get in the boat without all of the necessary pieces
+
+    public void InsertChecklistLine()
+    {
+        lines = new string[] { "It looks like a few pieces are missing...", "Press TAB to see what you need to fix it." };
+        index = 0;
+        textComponent.text = string.Empty;
+
+        disableComponents();
+        gameObject.SetActive(true);
+        StartCoroutine(TypeLine());
+    }
+
     // called when player intially picks up a gun
     public void InsertPickupGunLine()
     {

@@ -12,7 +12,7 @@ public class FallerInWater : MonoBehaviour
     void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.layer == 4) { // if collision is with water layer
-            if (firstFall) { // dialogue if first time falling in water
+            if (firstFall) { // dialogue if first time falling in
                 firstFall = !firstFall;
                 FirstFallEvent?.Invoke();
             }
