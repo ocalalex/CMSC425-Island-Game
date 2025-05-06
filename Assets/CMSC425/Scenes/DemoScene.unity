@@ -1327,6 +1327,116 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: c96350c1832e9984ca95c3320ee2f789, type: 3}
   m_PrefabInstance: {fileID: 72591281}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &76683507
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 76683508}
+  - component: {fileID: 76683511}
+  - component: {fileID: 76683510}
+  - component: {fileID: 76683509}
+  m_Layer: 10
+  m_Name: BoatKey
+  m_TagString: MapElement
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &76683508
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 76683507}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -251.82, y: 170.59961, z: 53.026047}
+  m_LocalScale: {x: 20, y: 0.50000024, z: 20}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 751919734}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!136 &76683509
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 76683507}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5000001
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
+--- !u!23 &76683510
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 76683507}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: b1669e169d2d1244e8353e13ac0796d3, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &76683511
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 76683507}
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &80068644 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: b3b5c66498e47e84dad4c1dbd3c6e9cd, type: 3}
@@ -3379,6 +3489,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 896608999058244092, guid: 3f073f99c8c2e70459276f46ce2d39a4, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2132217977}
+    - targetCorrespondingSourceObject: {fileID: 896608999058244092, guid: 3f073f99c8c2e70459276f46ce2d39a4, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 76683508}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 1140333947864012897, guid: 3f073f99c8c2e70459276f46ce2d39a4, type: 3}
       insertIndex: -1
@@ -8359,9 +8472,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: b8cde323cba18154d8dc799e6e26b07e, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2013021749}
-    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: b8cde323cba18154d8dc799e6e26b07e, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1618482156}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: b8cde323cba18154d8dc799e6e26b07e, type: 3}
       insertIndex: -1
@@ -23196,8 +23306,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294906880
-  m_fontColor: {r: 0, g: 0.07926512, b: 1, a: 1}
+    rgba: 4294242399
+  m_fontColor: {r: 0.37254903, g: 0.94117653, b: 0.9568628, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -24860,7 +24970,7 @@ Transform:
   m_GameObject: {fileID: 1476636865}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -37.326157, y: 170.5996, z: -35.35907}
+  m_LocalPosition: {x: -44, y: 170.5996, z: -29}
   m_LocalScale: {x: 20, y: 0.50000024, z: 20}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -26604,8 +26714,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294906880
-  m_fontColor: {r: 0, g: 0.07926512, b: 1, a: 1}
+    rgba: 4294965601
+  m_fontColor: {r: 0.380503, g: 0.97741616, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -27765,116 +27875,6 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -5063564748506495436, guid: 1a0343ea8ea213448901ea31a4950662, type: 3}
---- !u!1 &1618482155
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1618482156}
-  - component: {fileID: 1618482159}
-  - component: {fileID: 1618482158}
-  - component: {fileID: 1618482157}
-  m_Layer: 10
-  m_Name: BoatKey
-  m_TagString: MapElement
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1618482156
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1618482155}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 1.61, y: 6.5999985, z: 0.33}
-  m_LocalScale: {x: 1, y: 0.025000012, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1979961234}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!136 &1618482157
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1618482155}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5000001
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
---- !u!23 &1618482158
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1618482155}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
-  m_RayTraceProcedural: 0
-  m_RayTracingAccelStructBuildFlagsOverride: 0
-  m_RayTracingAccelStructBuildFlags: 1
-  m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: b1669e169d2d1244e8353e13ac0796d3, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_AdditionalVertexStreams: {fileID: 0}
---- !u!33 &1618482159
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1618482155}
-  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1001 &1620138432
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -30254,7 +30254,7 @@ Transform:
   m_GameObject: {fileID: 1751317041}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 64.27396, y: 128.79999, z: -16.657898}
+  m_LocalPosition: {x: 64.3, y: 128.79999, z: -9.1}
   m_LocalScale: {x: 20, y: 0.50000024, z: 20}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -33955,8 +33955,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294906880
-  m_fontColor: {r: 0, g: 0.07926512, b: 1, a: 1}
+    rgba: 4294373727
+  m_fontColor: {r: 0.37254903, g: 0.9450981, b: 0.96470594, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -35929,8 +35929,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294906880
-  m_fontColor: {r: 0, g: 0.07926512, b: 1, a: 1}
+    rgba: 4294636640
+  m_fontColor: {r: 0.37647063, g: 0.9568628, b: 0.9803922, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -38109,7 +38109,7 @@ MonoBehaviour:
   lightMarkerText: {fileID: 1388817054}
   lightMarkerDot: {fileID: 1906920916}
   boatMarkerText: {fileID: 2013021748}
-  boatMarkerDot: {fileID: 1618482155}
+  boatMarkerDot: {fileID: 76683507}
   mapKeyNum: 27
   mainCamera: {fileID: 691510995}
   mapCamera: {fileID: 2005334129}
@@ -39045,8 +39045,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294906880
-  m_fontColor: {r: 0, g: 0.07926512, b: 1, a: 1}
+    rgba: 4293453406
+  m_fontColor: {r: 0.36862746, g: 0.90196085, b: 0.909804, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -39300,6 +39300,22 @@ PrefabInstance:
     - target: {fileID: 8166377287454772743, guid: 20e377b641e508a46991a72e44ff0307, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8426509765113152848, guid: 20e377b641e508a46991a72e44ff0307, type: 3}
+      propertyPath: m_fontColor.b
+      value: 0.9725491
+      objectReference: {fileID: 0}
+    - target: {fileID: 8426509765113152848, guid: 20e377b641e508a46991a72e44ff0307, type: 3}
+      propertyPath: m_fontColor.g
+      value: 0.95294124
+      objectReference: {fileID: 0}
+    - target: {fileID: 8426509765113152848, guid: 20e377b641e508a46991a72e44ff0307, type: 3}
+      propertyPath: m_fontColor.r
+      value: 0.37254903
+      objectReference: {fileID: 0}
+    - target: {fileID: 8426509765113152848, guid: 20e377b641e508a46991a72e44ff0307, type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4294505311
       objectReference: {fileID: 0}
     - target: {fileID: 8724720726677471352, guid: 20e377b641e508a46991a72e44ff0307, type: 3}
       propertyPath: m_Layer
