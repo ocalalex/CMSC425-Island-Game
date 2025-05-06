@@ -9,7 +9,6 @@ public class SecurityHealth : MonoBehaviour
     public float hurtDur = 0.2f;
 
     private Renderer[] renderers;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         renderers = GetComponentsInChildren<Renderer>(); 
@@ -24,17 +23,18 @@ public class SecurityHealth : MonoBehaviour
 
     public void OnCollisionEnter(Collision collision)
     {
+        // if shot
         if (collision.gameObject.CompareTag("Bullet")) {
-            Debug.Log("Bullet");
-            health -= 1;
+            health -= 1; // update health
 
             if (health == 0) {
-                Destroy(this.gameObject);
-            }
-            StartCoroutine(HurtVisualization());
+                Destroy(this.gameObject); // if out of health, kill security
+            } 
+            StartCoroutine(HurtVisualization()); 
         }
     }
 
+    // security guard glows for a duration when he gets hurt, then resets to default
     IEnumerator HurtVisualization(){
         foreach (var renderer in renderers)
         {

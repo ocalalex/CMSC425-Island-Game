@@ -25,30 +25,43 @@ public class Jumper : MonoBehaviour
     {
         if (jmpKey.isPressed && onGround)
         {
-            Vector3 impulse = Vector3.up;
-            rb.AddForce(jumpSize*impulse, ForceMode.Impulse);
+            Vector3 jumpVector = Vector3.up;
+            // Impulse applies entire force instantly rather than gradually
+            rb.AddForce(jumpSize*jumpVector, ForceMode.Impulse); 
             onGround = false;
         }
 
-        if (rb.linearVelocity.y > jumpSize)
+        if (rb.linearVelocity.y > jumpSize) 
         {
-            rb.linearVelocity = new Vector3(rb.linearVelocity.x, jumpSize, rb.linearVelocity.z);
+            // caps upwards velocity, due to bug forcing player upwards when glitched in wall
+            rb.linearVelocity = new Vector3(rb.linearVelocity.x, jumpSize, rb.linearVelocity.z); 
         }
         
     }
 
+    // checks if any of the current collisions are coming from below, and updates onGround if a collision is coming from below
     void OnCollisionStay(Collision collision)
     {
         if (!onGround) 
         {
+            // checks all contact points of collision
             foreach (ContactPoint contact in collision.contacts)
             {
-                if (contact.normal.y > 0.5f)
+                // contact normal is pointing upwards more than it is pointing sideways
+                if (contact.normal.y > 0.5f) 
                 {
                     onGround = true;
                     return;
                 }
             }
         }
+    }
+
+    // any collision exit updates onGround to false, but if you're still colliding with any other objects
+    // then it will continue to check if those objects are colliding from the bottom
+
+    // this stops you from jumping while falling off something
+    void OnCollisionExit(Collision collision) {
+        onGround = false;
     }
 }

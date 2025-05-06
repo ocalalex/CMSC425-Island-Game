@@ -17,6 +17,7 @@ public class Inventory : MonoBehaviour
         Display();
     }
 
+    // add an item to the inventory, and update display
     public void AddItem(GameObject item) {
         items.Add(item);
 
@@ -28,6 +29,7 @@ public class Inventory : MonoBehaviour
         Display();
     }
 
+    // remove item from inventory using index, and update display
     public void UseItem(int i) {
         // Use key to open door
         items.RemoveAt(i);
@@ -35,6 +37,7 @@ public class Inventory : MonoBehaviour
         Display();
     }
 
+    // remove item from inventory, and update display
     public void UseItem(GameObject item) {
         items.Remove(item);
 
@@ -44,27 +47,19 @@ public class Inventory : MonoBehaviour
         Display();
     }
 
+    // checks if item is in inv
     public Boolean CheckItem(GameObject item) {
         return items.Contains(item);
     }
 
-    /* void Display() {
-        for (int i = 0; i < inventory.Length; i++) {
-            if (i < items.Count) {
-                inventory[i].sprite = itemImage;
-            } else {
-                inventory[i].sprite = null;
-            }
-        }
-    } */
-
+    // updates inventory slots to display exactly the objects in inv
     void Display() {
-        for (int i = 0; i < inventory.Length; i++) {
-            if (i < items.Count) {
+        for (int i = 0; i < inventory.Length; i++) { // for each inventory slot
+            if (i < items.Count) { // if there exists an item for that slot
 
-                PickUp assignSprite = items[i].GetComponent<PickUp>();
-                inventory[i].sprite = assignSprite.inventoryImage;
-            } else {
+                PickUp assignSprite = items[i].GetComponent<PickUp>(); // item sprite is stored in the pickup script for the item
+                inventory[i].sprite = assignSprite.inventoryImage; // assign inventory slot with item sprite
+            } else { // if inventory slot is empty
                 inventory[i].sprite = null;
             }
         }

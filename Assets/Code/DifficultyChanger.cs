@@ -1,3 +1,4 @@
+using UnityEditor.Rendering;
 using UnityEngine;
 
 public class DifficultyChanger : MonoBehaviour
@@ -9,6 +10,8 @@ public class DifficultyChanger : MonoBehaviour
     private Mover userMover;
     private TreeSpawner treeSpawner;
     private Rotator spotlightRotater;
+
+    public GameObject settingsMenu;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -62,6 +65,15 @@ public class DifficultyChanger : MonoBehaviour
             userMover.speed = 12f;
             treeSpawner.treeCount = 15;
             spotlightRotater.ChangeRotationPeriod(8f);
+        }
+        else if (difficulty == 3)   //demo
+        {
+            userMover.speed = 26f;
+            treeSpawner.treeCount = 40;
+            spotlightRotater.ChangeRotationPeriod(12f);
+            SensitivityController sensitivity = settingsMenu.GetComponent<SensitivityController>();
+            // specified to oscar's mouse sensitivity because we're using his computer
+            sensitivity.updateSensitivity("175");
         }
         
         //respawns trees to match the new difficulty level

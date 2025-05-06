@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Resources;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class GetInBoat : MonoBehaviour
 {
@@ -19,41 +20,59 @@ public class GetInBoat : MonoBehaviour
     public Camera mainCamera;
     public Camera endCamera;
     public Camera mapCamera;
+    private int objectsLayer;
     public ChecklistController checklistController;
+
+    public UnityEvent ChecklistAvailableEvent;
     void Start()
     {
+        objectsLayer = LayerMask.GetMask("Objects"); 
         mainCamera.enabled = true;
         endCamera.enabled = false;
         mapCamera.enabled = false;
     }
 
-    void OnMouseDown()
+    void Update()
     {
-        checklistController.foundBoat = true;
-        Transform player = playerObject.transform;
-
-        float dist = Vector3.Distance(transform.position, player.position);
-        if (dist <= clickRadius)
+        if (Input.GetMouseButtonDown(0))
         {
-            if (inventory.CheckItem(gear) && inventory.CheckItem(toolbox) && inventory.CheckItem(fuel) && inventory.CheckItem(engine) && inventory.CheckItem(propeller))
-            {
-                sitInBoat();
-                inventory.UseItem(gear);
-                inventory.UseItem(toolbox);
-                inventory.UseItem(fuel);
-                inventory.UseItem(engine);
-                inventory.UseItem(propeller);
-                if (!isMoving)
-                {
-                    StartCoroutine(MoveBoat(5f, 20f));
+            if (Camera.main != null) {
+                
+                Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+                RaycastHit hit;
+
+                // if player clicks and is within clicking distance
+                if (Physics.Raycast(ray, out hit, clickRadius, objectsLayer)) {
+                    if (hit.transform == transform) // checks that the hit object is the boat
+                    {
+                        // if all necessary items are in inv
+                        if (inventory.CheckItem(gear) && inventory.CheckItem(toolbox) && inventory.CheckItem(fuel) && inventory.CheckItem(engine) && inventory.CheckItem(propeller))
+                        {
+                            sitInBoat();
+                            // use all the items
+                            inventory.UseItem(gear);
+                            inventory.UseItem(toolbox);
+                            inventory.UseItem(fuel);
+                            inventory.UseItem(engine);
+                            inventory.UseItem(propeller);
+                            if (!isMoving)
+                            {
+                                //The boat starts drifting away
+                                StartCoroutine(MoveBoat(5f, 20f));
+                            }
+                        }
+                        else
+                        {
+                            checklistController.foundBoat = true; // allows player to access checklist after clicking boat
+                            // if not all items are in inv, remind player to use checklist
+                            ChecklistAvailableEvent?.Invoke();
+                        }
+                    }
                 }
-            }
-            else
-            {
-                Debug.Log("No gear");
             }
         }
     }
+                
     private IEnumerator MoveBoat(float duration, float secDuration)
     {
         isMoving = true;
@@ -62,9 +81,11 @@ public class GetInBoat : MonoBehaviour
         {
             if (Time.time > startTime + duration)
             {
+                //swaps from the user camera to the ending camera
                 mainCamera.enabled = false;
                 endCamera.enabled = true;
             }
+            //boat drifts
             transform.Translate(0, 0, -speed * Time.deltaTime);
             yield return null;
         }
@@ -73,14 +94,16 @@ public class GetInBoat : MonoBehaviour
 
     void sitInBoat()
     {
+        // stop user from restarting if they accidentally collide with water while in boat
+        Destroy(playerObject.GetComponent<FallerInWater>());
+        
         Transform player = playerObject.transform;
-
-        player.parent = transform;
+        player.parent = transform; // make player a child of boat 
 
         Rigidbody playerRB = playerObject.GetComponent<Rigidbody>();
-        playerRB.isKinematic = true;
+        playerRB.isKinematic = true; // disable physics for player
 
-        player.localPosition = new Vector3(0, 0.2f, 0);
+        player.localPosition = new Vector3(0, 0.2f, 0); // places user in position relative to boat
 
         playerObject.GetComponent<Mover>().enabled = false;
 
