@@ -78,4 +78,8 @@ public class MainMenu : MonoBehaviour
         playEvent.Invoke();
         mainMenuUI.SetActive(false);
     }
+
+    public void quitGame(){
+        Application.Quit();
+    }
 }
