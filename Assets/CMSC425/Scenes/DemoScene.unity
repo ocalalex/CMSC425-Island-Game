@@ -33983,13 +33983,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textComponent: {fileID: 2037669803}
   lines:
-  - 'Hello Player 788... (you are the 788th person being kidnapped on this island
-    called Stranded MUAHAHAHAHA. '
+  - 'Hello Player 788... (you are the 788th person I''ve kidnapped and brought to
+    this island) MUAHAHAHAHA. '
   - Who knows? Maybe you will die on this island and your bones will rot away while
     your family wonders where you are.
   - Want to escape....? Theres only one way...
-  - But why would I tell you???? There will be enough context clues and I will pop
-    up and help you occasionally, so use your thinking hat!
+  - But why would I tell you??? You'll have to figure it out on your own.
   - First... find your way out of this building. Good Luck!
   textSpeed: 0.05
   buildingTrigger: {fileID: 0}
