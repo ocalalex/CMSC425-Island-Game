@@ -39539,11 +39539,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3818752076121861937, guid: 21f3ac29464ef2f4281cfbf48450b06f, type: 3}
       propertyPath: m_Size.x
-      value: 88
+      value: 86
       objectReference: {fileID: 0}
     - target: {fileID: 3818752076121861937, guid: 21f3ac29464ef2f4281cfbf48450b06f, type: 3}
       propertyPath: m_Center.x
-      value: -4
+      value: -3
       objectReference: {fileID: 0}
     - target: {fileID: 3818752076121861937, guid: 21f3ac29464ef2f4281cfbf48450b06f, type: 3}
       propertyPath: m_Center.y
