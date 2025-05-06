@@ -13,12 +13,8 @@ public class PickUp : MonoBehaviour
     public UnityEvent dialogueEvent;
     public ChecklistController checklistController;
 
-
-    private int objectsLayer;
-
     void Start()
     {
-       objectsLayer = LayerMask.GetMask("Objects"); 
        if(dialogueEvent == null){
             Debug.Log("DialogueEvent is not assigned in the inspector.");
        }
@@ -29,25 +25,15 @@ public class PickUp : MonoBehaviour
             Debug.Log("InventoryImage is not assigned in the inspector.");
        }
     }
-    void Update() {
-        // if clicking
-        if (Input.GetMouseButtonDown(0)) {
-            if (Camera.main != null) {
-                Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-                RaycastHit hit;
-                // if mouse is pointed at object within click distance
-                if (Physics.Raycast(ray, out hit, clickRadius, objectsLayer)) {
-                    if (hit.transform == transform) {
-                        // pick up item
-                        inventory.AddItem(gameObject);
-                        // if dialogue exists for item, run it
-                        dialogueEvent?.Invoke();
-                        if (checklistController != null) { // check item off checklist if it is on checklist
-                            checklistController.CheckItem(gameObject);
-                        }
-                    }
-                }
-            }
+
+    // when object is clicked on within clickRadius (as controlled in ClickManager), pick up item
+    public void Clicked() {
+        // pick up item
+        inventory.AddItem(gameObject);
+        // if dialogue exists for item, run it
+        dialogueEvent?.Invoke();
+        if (checklistController != null) { // check item off checklist if it is on checklist
+            checklistController.CheckItem(gameObject);
         }
     }
 }
