@@ -39435,6 +39435,18 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: -7.48068
       objectReference: {fileID: 0}
+    - target: {fileID: 3818752076121861937, guid: 21f3ac29464ef2f4281cfbf48450b06f, type: 3}
+      propertyPath: m_Size.x
+      value: 88
+      objectReference: {fileID: 0}
+    - target: {fileID: 3818752076121861937, guid: 21f3ac29464ef2f4281cfbf48450b06f, type: 3}
+      propertyPath: m_Center.x
+      value: -4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3818752076121861937, guid: 21f3ac29464ef2f4281cfbf48450b06f, type: 3}
+      propertyPath: m_Center.y
+      value: -0.3000002
+      objectReference: {fileID: 0}
     - target: {fileID: 5345323577121176935, guid: 21f3ac29464ef2f4281cfbf48450b06f, type: 3}
       propertyPath: m_LocalScale.y
       value: 1
