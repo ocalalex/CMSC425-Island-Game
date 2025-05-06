@@ -13,8 +13,6 @@ public class Dialogue : MonoBehaviour
     public List<Behaviour> componentsToDisable = new List<Behaviour>(); //list of components to disable when the dialogue starts
     private bool hasExitedBuilding = false; //see if user has exited building
     public bool isSpotted = false;
-   
-
     private bool caughtBySecurity = false; //flag to see if player has already been caught by security
 
 
