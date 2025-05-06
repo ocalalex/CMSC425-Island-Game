@@ -6,13 +6,10 @@ public class CaneToGrandma : MonoBehaviour
 {
     public Inventory inventory;
     public GameObject toolbox;
+    public GameObject player;
     public GameObject cane;
     public float clickRadius = 20f; 
     private int objectsLayer;
-    
-    private Boolean firstTalk = true;
-
-    private Camera mainCam;
     public ChecklistController checklistController;
 
     public UnityEvent GrandmaHelpEvent;
@@ -21,7 +18,7 @@ public class CaneToGrandma : MonoBehaviour
 
     void Start()
     {
-        objectsLayer = LayerMask.GetMask("Objects"); 
+        objectsLayer = LayerMask.GetMask("Objects");
         if (inventory == null)
             Debug.LogWarning("Inventory not assigned to CaneToGrandma.");
         if (toolbox == null)
@@ -30,6 +27,10 @@ public class CaneToGrandma : MonoBehaviour
 
     void Update()
     {
+        // if player is near grandma, she asks for help - in Dialogue script, it stops this from happening more than once
+        if (Vector3.Distance(transform.position, player.transform.position) <= clickRadius) {
+            GrandmaHelpEvent?.Invoke(); // dialogue that asks player for help finding cane
+        }
         if (Input.GetMouseButtonDown(0))
         {
             if (Camera.main != null) {
@@ -37,23 +38,16 @@ public class CaneToGrandma : MonoBehaviour
                 Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
                 RaycastHit hit;
 
-                if (Physics.Raycast(ray, out hit, clickRadius, objectsLayer)) {
+                if (Physics.Raycast(ray, out hit, clickRadius, objectsLayer)) { //note: grandma is in objectsLayer
                     if (hit.transform == transform) {
                         Debug.Log("Clicked on Grandma");
-                        if (inventory.CheckItem(cane)) // see if user have cane to give to grandma
+                        if (inventory.CheckItem(cane)) // see if user has cane to give to grandma
                         {
-                            ReturnCaneEvent?.Invoke();
-                            inventory.UseItem(cane);   // remove cane
-                            inventory.AddItem(toolbox);      // add toolbox
-                            checklistController.CheckItem(toolbox);
+                            ReturnCaneEvent?.Invoke(); // dialogue thanking player
+                            inventory.UseItem(cane);   // remove cane from inv
+                            inventory.AddItem(toolbox);      // add toolbox to inv
+                            checklistController.CheckItem(toolbox); // check toolbox in checklist
 
-                        }
-                        else
-                        {
-                            if (firstTalk) {
-                                firstTalk = !firstTalk;
-                                GrandmaHelpEvent?.Invoke();
-                            }
                         }
                     
                     }

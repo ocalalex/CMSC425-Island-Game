@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.AI;
 
 public class SecurityController : MonoBehaviour
@@ -9,36 +10,34 @@ public class SecurityController : MonoBehaviour
     private Vector3 playerPos;
     public float lightHouseY;
     private Vector3 startPos;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+
+    public UnityEvent WarnPlayer;
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
-        startPos = transform.position; 
+        startPos = transform.position; // stores start location
     }
 
-    // Update is called once per frame
     void Update()
     {
         playerPos = player.transform.position;
-        if (playerPos.y >= lightHouseY)
+        if (playerPos.y >= lightHouseY) // if player is high enough to be seen by security guard, he moves towards player
         { 
             agent.SetDestination(playerPos);
         } else {
-            agent.SetDestination(startPos); // resets back to beginning to avoid crowding the ladder, making it impossible
+            agent.SetDestination(startPos); // resets security back to beginning to avoid crowding the ladder
         }     
     }
 
+    // on collision with player, teleport player to spawn and increase speed
     void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject == player) {
+            WarnPlayer?.Invoke(); // suggests that the player find a weapon
+
             Rigidbody rb = player.GetComponent<Rigidbody>();
-            Vector3 teleportPosition = player.GetComponent<Teleporter>().teleportPosition;
-            if(teleportPosition != null)
-            {
-            rb.linearVelocity = Vector3.zero;
-            rb.angularVelocity = Vector3.zero;
-            rb.position = teleportPosition;
-            }
+            Teleporter teleporter = player.GetComponent<Teleporter>();
+            teleporter.Teleport();
             if (agent.speed < 8.0) {
                 agent.speed += 0.5f; // gets madder
             }

@@ -4,6 +4,7 @@ public class OnLadder : MonoBehaviour
 {
     public GameObject player;
 
+    // when player collides with ladder, change player's movement to MoverOnLadder
     void OnTriggerEnter(Collider other)
     {
         if (other.gameObject == player)
@@ -17,6 +18,8 @@ public class OnLadder : MonoBehaviour
             
         }
     }
+
+    // when player exits ladder, change player's movement to Mover
     void OnTriggerExit(Collider other)
     {
         if (other.gameObject == player)
