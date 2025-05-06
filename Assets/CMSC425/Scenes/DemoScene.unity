@@ -3097,6 +3097,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: bathroomCabinetDrawer
       objectReference: {fileID: 0}
+    - target: {fileID: 1856217936949199574, guid: 072f6eea94fd58e49a3843939bd5b07f, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 7274182435141337306, guid: 072f6eea94fd58e49a3843939bd5b07f, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.2684418
@@ -3104,6 +3108,10 @@ PrefabInstance:
     - target: {fileID: 7274182435141337306, guid: 072f6eea94fd58e49a3843939bd5b07f, type: 3}
       propertyPath: m_LocalPosition.z
       value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8038241321943629972, guid: 072f6eea94fd58e49a3843939bd5b07f, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5469,6 +5477,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4423045620967985251, guid: 6aa3484f2d56b694c85fb649daa39a07, type: 3}
+      propertyPath: m_Name
+      value: frontdoor
+      objectReference: {fileID: 0}
+    - target: {fileID: 4423045620967985251, guid: 6aa3484f2d56b694c85fb649daa39a07, type: 3}
       propertyPath: m_Layer
       value: 8
       objectReference: {fileID: 0}
@@ -5717,6 +5729,7 @@ GameObject:
   - component: {fileID: 333749298}
   - component: {fileID: 333749299}
   - component: {fileID: 333749300}
+  - component: {fileID: 333749301}
   m_Layer: 0
   m_Name: Controller
   m_TagString: Untagged
@@ -5857,7 +5870,6 @@ MonoBehaviour:
   treeManager: {fileID: 185524301}
   user: {fileID: 2080557013}
   spotlight: {fileID: 2052571666}
-  settingsMenu: {fileID: 953265515}
 --- !u!114 &333749299
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5881,6 +5893,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d2d2d8d8877edb94dae45f219f07283a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &333749301
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 333749293}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b0f1ac8c069a8046aa65553519346ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!43 &338102356
@@ -33980,6 +34004,7 @@ MonoBehaviour:
   - {fileID: 430340157}
   - {fileID: 650013812}
   - {fileID: 1979961225}
+  - {fileID: 196024675}
   isSpotted: 0
 --- !u!1 &1895829056
 GameObject:
@@ -38223,7 +38248,7 @@ MonoBehaviour:
   bkKeyNum: 33
   ltKeyNum: 15
   rtKeyNum: 18
-  speed: 12
+  speed: 17
   collisionBuffer: 1.6
 --- !u!136 &2080557017
 CapsuleCollider:
@@ -38363,7 +38388,7 @@ MonoBehaviour:
   downKeyNum: 33
   ltKeyNum: 15
   rtKeyNum: 18
-  speed: 15
+  speed: 18
 --- !u!114 &2080557024
 MonoBehaviour:
   m_ObjectHideFlags: 0

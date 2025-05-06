@@ -23,6 +23,8 @@ public class SensitivityController : MonoBehaviour
         if (looker == null){
             Debug.LogError("Camera holder doesn't contain Looker component.");
         }
+
+
     }
 
     public void updateSensitivity(string input){

@@ -26,6 +26,7 @@ public class Settings : MonoBehaviour
         {
             Debug.LogError("Gameplay toggler is not assigned in the inspector.");
         }
+        Debug.Log("Update settings");
     }
 
     public void Update()
