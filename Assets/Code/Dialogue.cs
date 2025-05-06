@@ -13,7 +13,7 @@ public class Dialogue : MonoBehaviour
     public List<Behaviour> componentsToDisable = new List<Behaviour>(); //list of components to disable when the dialogue starts
     private bool hasExitedBuilding = false; //see if user has exited building
     public bool isSpotted = false;
-    private bool hasAskedGrandmaForHelp = false; //flag to see if clicked on grandma yet
+   
 
     private bool caughtBySecurity = false; //flag to see if player has already been caught by security
 
@@ -185,7 +185,6 @@ public class Dialogue : MonoBehaviour
     // called when player gets near grandma the first time
     public void InsertGrandmaHelpLine()
     {
-        if (!hasAskedGrandmaForHelp) {
             lines = new string[] {"Oh my! You surprised me!", "I seem to have lost my cane... do you mind finding it for me?", "I'm certain I left it in some nook or cranny of my house, maybe try the drawers."};
             index = 0;
             textComponent.text = string.Empty;
@@ -193,8 +192,7 @@ public class Dialogue : MonoBehaviour
             disableComponents();
             gameObject.SetActive(true);
             StartCoroutine(TypeLine());
-            hasAskedGrandmaForHelp = true;
-        }
+        
     }
 
     // called when player gets caught by security the first time
