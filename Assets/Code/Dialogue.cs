@@ -15,6 +15,8 @@ public class Dialogue : MonoBehaviour
     public bool isSpotted = false;
     private bool hasAskedGrandmaForHelp = false; //flag to see if clicked on grandma yet
 
+    private bool caughtBySecurity = false; //flag to see if player has already been caught by security
+
 
     void Start()
     {
@@ -180,6 +182,7 @@ public class Dialogue : MonoBehaviour
         StartCoroutine(TypeLine());
     }
 
+    // called when player gets near grandma the first time
     public void InsertGrandmaHelpLine()
     {
         if (!hasAskedGrandmaForHelp) {
@@ -194,6 +197,22 @@ public class Dialogue : MonoBehaviour
         }
     }
 
+    // called when player gets caught by security the first time
+    public void InsertSecurityWarningLine()
+    {
+        if (!caughtBySecurity) {
+            lines = new string[] {"You got caught by security.", "Maybe if you had a weapon..."};
+            index = 0;
+            textComponent.text = string.Empty;
+
+            disableComponents();
+            gameObject.SetActive(true);
+            StartCoroutine(TypeLine());
+            caughtBySecurity = true;
+        }
+    }
+
+    // called when player gives cane to grandma
     public void InsertGrandmaCaneReturnLine()
     {
         lines = new string[] {"Thank you, this has been a real help!", "You know, somewhere around the island, I've got an old boat.", "It may be in need of repair, but if you can fix it up, it's all yours! I'm not in need of it anymore...", "Here's a toolkit for your trouble."};

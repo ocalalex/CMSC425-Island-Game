@@ -68,10 +68,11 @@ public class DifficultyChanger : MonoBehaviour
         }
         else if (difficulty == 3)   //demo
         {
-            userMover.speed = 25f;
+            userMover.speed = 26f;
             treeSpawner.treeCount = 40;
             spotlightRotater.ChangeRotationPeriod(12f);
             SensitivityController sensitivity = settingsMenu.GetComponent<SensitivityController>();
+            // specified to oscar's mouse sensitivity because we're using his computer
             sensitivity.updateSensitivity("175");
         }
         

@@ -41,12 +41,15 @@ public class GetInBoat : MonoBehaviour
                 Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
                 RaycastHit hit;
 
+                // if player clicks and is within clicking distance
                 if (Physics.Raycast(ray, out hit, clickRadius, objectsLayer)) {
-                    if (hit.transform == transform) 
+                    if (hit.transform == transform) // checks that the hit object is the boat
                     {
+                        // if all necessary items are in inv
                         if (inventory.CheckItem(gear) && inventory.CheckItem(toolbox) && inventory.CheckItem(fuel) && inventory.CheckItem(engine) && inventory.CheckItem(propeller))
                         {
                             sitInBoat();
+                            // use all the items
                             inventory.UseItem(gear);
                             inventory.UseItem(toolbox);
                             inventory.UseItem(fuel);
@@ -59,7 +62,8 @@ public class GetInBoat : MonoBehaviour
                         }
                         else
                         {
-                            checklistController.foundBoat = true;
+                            checklistController.foundBoat = true; // allows player to access checklist after clicking boat
+                            // if not all items are in inv, remind player to use checklist
                             ChecklistAvailableEvent?.Invoke();
                         }
                     }
@@ -94,9 +98,9 @@ public class GetInBoat : MonoBehaviour
         player.parent = transform; // make player a child of boat 
 
         Rigidbody playerRB = playerObject.GetComponent<Rigidbody>();
-        playerRB.isKinematic = true;
+        playerRB.isKinematic = true; // disable physics for player
 
-        player.localPosition = new Vector3(0, 0.2f, 0);
+        player.localPosition = new Vector3(0, 0.2f, 0); // places user in position relative to boat
 
         playerObject.GetComponent<Mover>().enabled = false;
 

@@ -30,15 +30,19 @@ public class PickUp : MonoBehaviour
        }
     }
     void Update() {
+        // if clicking
         if (Input.GetMouseButtonDown(0)) {
             if (Camera.main != null) {
                 Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
                 RaycastHit hit;
+                // if mouse is pointed at object within click distance
                 if (Physics.Raycast(ray, out hit, clickRadius, objectsLayer)) {
                     if (hit.transform == transform) {
+                        // pick up item
                         inventory.AddItem(gameObject);
+                        // if dialogue exists for item, run it
                         dialogueEvent?.Invoke();
-                        if (checklistController != null) {
+                        if (checklistController != null) { // check item off checklist if it is on checklist
                             checklistController.CheckItem(gameObject);
                         }
                     }

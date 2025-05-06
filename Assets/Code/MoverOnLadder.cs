@@ -27,7 +27,6 @@ public class MoverOnLadder : MonoBehaviour
         rtKey = Keyboard.current[rtKeyNum];
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (upKey.isPressed)
@@ -40,12 +39,14 @@ public class MoverOnLadder : MonoBehaviour
         }
         if (downKey.isPressed)
         {
+            // if onGround, downKey will move you backwards away from ladder
             if (onGround) {
                 transform.Translate(0, 0, -speed * Time.deltaTime);
-            } else {
+            } else { // else, downKey will move you down the ladder
                 transform.Translate(0, -speed * Time.deltaTime, 0);
             }
         }
+        // left and right controls are the same as Mover
         if (ltKey.isPressed)
         {
             transform.Translate(-speed * Time.deltaTime, 0, 0);
@@ -58,6 +59,7 @@ public class MoverOnLadder : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
+        // if player reaches top of ladder, return player control to the normal Mover and take away control from Ladder Mover
         if (other.gameObject.CompareTag("LadderTop"))
         {
             Debug.Log("Reached the top");
@@ -66,11 +68,9 @@ public class MoverOnLadder : MonoBehaviour
 
             GetComponent<Mover>().enabled = true;
             GetComponent<MoverOnLadder>().enabled = false;
-        }
+        } 
         else if (other.gameObject.CompareTag("LadderBottom"))
         {
-            Debug.Log("At ground");
-
             onGround = true;
         }
     }

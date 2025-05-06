@@ -12,13 +12,11 @@ public class WireCutter : MonoBehaviour
     private LayerMask objectsLayer;
     public int clickRadius;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         objectsLayer = LayerMask.GetMask("Objects");
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (Input.GetMouseButtonDown(0))
@@ -28,23 +26,24 @@ public class WireCutter : MonoBehaviour
                 Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
                 RaycastHit hit;
 
+                // if clicking on wire
                 if (Physics.Raycast(ray, out hit, clickRadius, objectsLayer)) {
                     if (hit.transform == transform) {
-                        if (inventory.CheckItem(toolbox)) // see if user have cane to give to grandma
+                        if (inventory.CheckItem(toolbox)) // see if user has toolbox to cut the wire with
                         {
                             SpotlightDetection spotlightDetection = spotlight.GetComponent<SpotlightDetection>();
-                            spotlightDetection.uncutWires--;
+                            spotlightDetection.uncutWires--; // number of uncut wires updated in SpotlightDetection 
 
-                            Transform[] brokenWires = GetComponentsInChildren<Transform>(true); // the (true) gets inactive children 
+                            Transform[] brokenWires = GetComponentsInChildren<Transform>(true); // the (true) includes inactive children 
                             foreach (Transform brokenWire in brokenWires) { // activates the broken wire objects
                                 brokenWire.parent = null;
                                 brokenWire.gameObject.SetActive(true);
                             }
 
-                            Destroy(this.gameObject);
+                            Destroy(this.gameObject); // destroys the uncut wire object 
 
                         }
-                        else
+                        else // if no toolkit, tell user they need a toolkit
                         {
                             NoToolboxEvent?.Invoke();
                         }
