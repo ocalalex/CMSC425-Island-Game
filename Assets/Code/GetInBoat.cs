@@ -57,6 +57,7 @@ public class GetInBoat : MonoBehaviour
                             inventory.UseItem(propeller);
                             if (!isMoving)
                             {
+                                //The boat starts drifting away
                                 StartCoroutine(MoveBoat(5f, 20f));
                             }
                         }
@@ -80,9 +81,11 @@ public class GetInBoat : MonoBehaviour
         {
             if (Time.time > startTime + duration)
             {
+                //swaps from the user camera to the ending camera
                 mainCamera.enabled = false;
                 endCamera.enabled = true;
             }
+            //boat drifts
             transform.Translate(0, 0, -speed * Time.deltaTime);
             yield return null;
         }
