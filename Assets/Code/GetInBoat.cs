@@ -23,6 +23,8 @@ public class GetInBoat : MonoBehaviour
     private int objectsLayer;
     public ChecklistController checklistController;
 
+    public Dialogue dialogue;
+
     public UnityEvent ChecklistAvailableEvent;
     void Start()
     {
@@ -55,6 +57,7 @@ public class GetInBoat : MonoBehaviour
                             inventory.UseItem(fuel);
                             inventory.UseItem(engine);
                             inventory.UseItem(propeller);
+                            dialogue.InsertEndingBoatLine();
                             if (!isMoving)
                             {
                                 //The boat starts drifting away

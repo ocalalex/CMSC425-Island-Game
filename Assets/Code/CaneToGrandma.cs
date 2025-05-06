@@ -27,10 +27,7 @@ public class CaneToGrandma : MonoBehaviour
 
     void Update()
     {
-        // if player is near grandma, she asks for help - in Dialogue script, it stops this from happening more than once
-        if (Vector3.Distance(transform.position, player.transform.position) <= clickRadius) {
-            GrandmaHelpEvent?.Invoke(); // dialogue that asks player for help finding cane
-        }
+    
         if (Input.GetMouseButtonDown(0))
         {
             if (Camera.main != null) {

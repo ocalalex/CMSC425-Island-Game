@@ -13,8 +13,6 @@ public class Dialogue : MonoBehaviour
     public List<Behaviour> componentsToDisable = new List<Behaviour>(); //list of components to disable when the dialogue starts
     private bool hasExitedBuilding = false; //see if user has exited building
     public bool isSpotted = false;
-    private bool hasAskedGrandmaForHelp = false; //flag to see if clicked on grandma yet
-
     private bool caughtBySecurity = false; //flag to see if player has already been caught by security
 
 
@@ -101,7 +99,7 @@ public class Dialogue : MonoBehaviour
     void InsertExitLine()
     {
         // Replace lines entirely with only the new one
-        lines = new string[] { "You step out of the building...Now find the boat and avoid being caught by the spotlight. Good luck!" };
+        lines = new string[] { "You step out of the building...Now find the boat and avoid being caught by the spotlight. Good luck.... or not." };
         index = 0;
         textComponent.text = string.Empty;
 
@@ -113,7 +111,7 @@ public class Dialogue : MonoBehaviour
 
     void InsertSpottedLine()
     {
-        lines = new string[] { "You have been caught by the spotlight!", "Try hiding under the trees next time." };
+        lines = new string[] { "You have been caught by the spotlight...", "Try hiding under the trees next time." };
         index = 0;
         textComponent.text = string.Empty;
 
@@ -124,7 +122,7 @@ public class Dialogue : MonoBehaviour
 
     void InsertBoatLine()
     {
-        lines = new string[] { "It looks like this boat is the only way off the island.", "It's missing a few parts though..." };
+        lines = new string[] { "It looks like this boat is the only way off the island.", "It's missing a few parts though... looks like you can't leave..." };
         index = 0;
         textComponent.text = string.Empty;
 
@@ -149,7 +147,7 @@ public class Dialogue : MonoBehaviour
     // called when player intially picks up a gun
     public void InsertPickupGunLine()
     {
-        lines = new string[] {"You picked up a gun!", "Press 'E' to equip it.", "It may come in handy later."};
+        lines = new string[] {"You picked up a gun...", "Press 'E' to equip it.", "It may come in handy later.... who knows?"};
         index = 0;
         textComponent.text = string.Empty;
 
@@ -161,7 +159,7 @@ public class Dialogue : MonoBehaviour
     // called when player intiially picks up a map
     public void InsertPickupMapLine()
     {
-        lines = new string[] {"You found a map!", "Press 'M' to see the entire island."};
+        lines = new string[] {"You found a map...", "Press 'M' to see the entire island."};
         index = 0;
         textComponent.text = string.Empty;
 
@@ -173,7 +171,7 @@ public class Dialogue : MonoBehaviour
     // called when player first falls in water
     public void InsertFirstFallLine()
     {
-        lines = new string[] {"You can't swim!", "Avoid falling in the water next time."};
+        lines = new string[] {"You can't swim..", "Avoid falling in the water next time."};
         index = 0;
         textComponent.text = string.Empty;
 
@@ -185,23 +183,21 @@ public class Dialogue : MonoBehaviour
     // called when player gets near grandma the first time
     public void InsertGrandmaHelpLine()
     {
-        if (!hasAskedGrandmaForHelp) {
-            lines = new string[] {"Oh my! You surprised me!", "I seem to have lost my cane... do you mind finding it for me?", "I'm certain I left it in some nook or cranny of my house, maybe try the drawers."};
+            lines = new string[] {"Grandma: Oh my! You surprised me!", "Grandma: I haven't seen a person come by in ages!", "Grandma: I seem to have lost my cane... do you mind finding it for me?", "Grandma: I'm certain I left it in some nook or cranny of my house, maybe try the drawers."};
             index = 0;
             textComponent.text = string.Empty;
 
             disableComponents();
             gameObject.SetActive(true);
             StartCoroutine(TypeLine());
-            hasAskedGrandmaForHelp = true;
-        }
+        
     }
 
     // called when player gets caught by security the first time
     public void InsertSecurityWarningLine()
     {
         if (!caughtBySecurity) {
-            lines = new string[] {"You got caught by security.", "Maybe if you had a weapon..."};
+            lines = new string[] {"MUAHAHA.... you got caught by security.", "Maybe if you had a weapon..."};
             index = 0;
             textComponent.text = string.Empty;
 
@@ -215,11 +211,20 @@ public class Dialogue : MonoBehaviour
     // called when player gives cane to grandma
     public void InsertGrandmaCaneReturnLine()
     {
-        lines = new string[] {"Thank you, this has been a real help!", "You know, somewhere around the island, I've got an old boat.", "It may be in need of repair, but if you can fix it up, it's all yours! I'm not in need of it anymore...", "Here's a toolkit for your trouble."};
+        lines = new string[] {"Grandma: Thank you, this has been a real help!", "Grandma: You know, somewhere around the island, I've got an old boat.", "Grandma: It may be in need of repair, but if you can fix it up, it's all yours! I'm not in need of it anymore...", "Grandma: Here's a toolkit for your trouble."};
         index = 0;
         textComponent.text = string.Empty;
 
         disableComponents();
+        gameObject.SetActive(true);
+        StartCoroutine(TypeLine());
+    }
+
+    public void InsertEndingBoatLine() {
+        lines = new string[] {"Well... player 788 you have escaped! Or did you..."};
+        index = 0;
+        textComponent.text = string.Empty;
+
         gameObject.SetActive(true);
         StartCoroutine(TypeLine());
     }
