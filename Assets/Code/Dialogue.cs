@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 
+//tutorial: https://www.youtube.com/watch?v=8oTYabhj248
 public class Dialogue : MonoBehaviour
 {
     public TextMeshProUGUI textComponent; //reference to the TextMeshPro object
@@ -16,6 +17,7 @@ public class Dialogue : MonoBehaviour
     private bool caughtBySecurity = false; //flag to see if player has already been caught by security
 
 
+    //clear the text at the start of the game
     void Start()
     {
         textComponent.text = string.Empty;
@@ -25,12 +27,15 @@ public class Dialogue : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //needs to click to go thorugh the lines
         if (Input.GetMouseButtonDown(0))
         {
+            //if full ine is shown, move the the next line
             if (textComponent.text == lines[index])
             {
                 NextLine();
             }
+            //else, instantly show curr line
             else
             {
                 StopAllCoroutines();
@@ -39,24 +44,27 @@ public class Dialogue : MonoBehaviour
         }
     }
 
+    //starts the dialogue sequence set from inspector
     public void StartDialogue()
     {
-        disableComponents();
+        disableComponents(); //disables other interactions
         index = 0;
         textComponent.text = string.Empty;
-        StartCoroutine(TypeLine());
+        StartCoroutine(TypeLine()); //begins the typing effect
     }
 
+    //Coroutine that types out the character one by one
     IEnumerator TypeLine()
     {
-        yield return null;
+        yield return null; //waits a frame
         foreach (char c in lines[index].ToCharArray())
         {
-            textComponent.text += c;
-            yield return new WaitForSeconds(textSpeed);
+            textComponent.text += c; //adds to the text
+            yield return new WaitForSeconds(textSpeed); //waits for whatever the inspector sets the speed to 
         }
     }
 
+    //goes to next line or ends dialogue
     void NextLine()
     {
         if (index < lines.Length - 1)
@@ -67,11 +75,12 @@ public class Dialogue : MonoBehaviour
         }
         else
         {
-            enableComponents();
-            gameObject.SetActive(false);
+            enableComponents(); // Re-enable interactions
+            gameObject.SetActive(false); //hides dialogue box
         }
     }
 
+    //called when player exits the building
     public void TriggerExitLine()
     {
         if (!hasExitedBuilding)
