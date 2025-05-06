@@ -26,6 +26,7 @@ public class GetInBoat : MonoBehaviour
     public Dialogue dialogue;
 
     public UnityEvent ChecklistAvailableEvent;
+    bool playerHasWon = false;
     void Start()
     {
         objectsLayer = LayerMask.GetMask("Objects"); 
@@ -50,6 +51,8 @@ public class GetInBoat : MonoBehaviour
                         // if all necessary items are in inv
                         if (inventory.CheckItem(gear) && inventory.CheckItem(toolbox) && inventory.CheckItem(fuel) && inventory.CheckItem(engine) && inventory.CheckItem(propeller))
                         {
+                            playerHasWon = true;
+                            // player gets in the boat
                             sitInBoat();
                             // use all the items
                             inventory.UseItem(gear);
@@ -66,16 +69,19 @@ public class GetInBoat : MonoBehaviour
                         }
                         else
                         {
-                            checklistController.foundBoat = true; // allows player to access checklist after clicking boat
-                            // if not all items are in inv, remind player to use checklist
-                            ChecklistAvailableEvent?.Invoke();
+                            if (!playerHasWon) {
+                                checklistController.foundBoat = true; // allows player to access checklist after clicking boat
+                                // if not all items are in inv, remind player to use checklist
+                                ChecklistAvailableEvent?.Invoke();
+                            }
                         }
                     }
                 }
             }
         }
     }
-                
+
+    // the boat starts sailing away
     private IEnumerator MoveBoat(float duration, float secDuration)
     {
         isMoving = true;
@@ -95,6 +101,7 @@ public class GetInBoat : MonoBehaviour
         isMoving = false;
     }
 
+    // the player gets in the boat
     void sitInBoat()
     {
         // stop user from restarting if they accidentally collide with water while in boat
