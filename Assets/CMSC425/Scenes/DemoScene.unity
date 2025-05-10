@@ -35546,7 +35546,7 @@ MonoBehaviour:
   endCamera: {fileID: 1964080804}
   mapCamera: {fileID: 2005334129}
   checklistController: {fileID: 2080557027}
-  dialogue: {fileID: 0}
+  dialogue: {fileID: 1894785195}
   ChecklistAvailableEvent:
     m_PersistentCalls:
       m_Calls:

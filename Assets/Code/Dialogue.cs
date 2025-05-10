@@ -255,7 +255,10 @@ public class Dialogue : MonoBehaviour
     {
         foreach (Behaviour component in componentsToDisable)
         {
-            component.enabled = false; //disable all the components in the list
+            if (component != null) {
+                component.enabled = false; //disable all the components in the list
+
+            }
         }
     }
 
@@ -264,7 +267,10 @@ public class Dialogue : MonoBehaviour
     {
         foreach (Behaviour component in componentsToDisable)
         {
-            component.enabled = true; //enable all the components in the list
+            if (component != null) {
+                component.enabled = true; //enable all the components in the list
+
+            }
         }
     }
 
